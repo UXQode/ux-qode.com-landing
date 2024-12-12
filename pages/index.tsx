@@ -11,7 +11,6 @@ export default function HomePage() {
       <Hero/>
       <Feature />
       <Contact />
-      <Footer />
     </>
   );
 }

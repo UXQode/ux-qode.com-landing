@@ -47,14 +47,8 @@ export function Contact() {
     }
   };
 
-  const icons = social.map((Icon, index) => (
-    <ActionIcon key={index} size={28} className={classes.social} variant="transparent">
-      <Icon size={22} stroke={1.5} />
-    </ActionIcon>
-  ));
-
   return (
-    <Container size="lg" py="xl">
+    <Container size="lg" py="xl" id="contact-us">
       <div className={classes.wrapper}>
         <SimpleGrid cols={{ base: 1, sm: 2 }} spacing={50}>
           <div>
@@ -64,8 +58,6 @@ export function Contact() {
             </Text>
 
             <ContactIconsList />
-
-            <Group mt="xl">{icons}</Group>
           </div>
           <div className={classes.form}>
             <TextInput

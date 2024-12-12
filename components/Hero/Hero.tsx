@@ -1,6 +1,8 @@
 import { IconCheck } from '@tabler/icons-react';
 import { Box, Button, Container, Group, Image, List, Text, ThemeIcon, Title } from '@mantine/core';
 import classes from './Hero.module.css';
+import Link from 'next/link';
+import { Anchor } from '@mantine/core';
 
 export function Hero() {
   return (
@@ -37,12 +39,16 @@ export function Hero() {
           </List>
 
           <Group mt={30}>
-            <Button radius="xl" size="md" className={classes.control}>
+          <Anchor component={Link} href="/#features">
+            <Button radius="xl" size="md" className={classes.control} >
               Discover More
             </Button>
+            </Anchor>
+            <Anchor component={Link} href="/#contact-us">
             <Button variant="default" radius="xl" size="md" className={classes.control}>
               Contact Us
             </Button>
+            </Anchor>
           </Group>
         </div>
       </div>
