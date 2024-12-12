@@ -1,6 +1,4 @@
 import { Header } from '@/components/Header/Header';
-import { ColorSchemeToggle } from '../components/ColorSchemeToggle/ColorSchemeToggle';
-import { Welcome } from '../components/Welcome/Welcome';
 import { Hero } from '@/components/Hero/Hero';
 import { Feature } from '@/components/Feature/Feature';
 import { Contact } from '@/components/Contact/Contact';
