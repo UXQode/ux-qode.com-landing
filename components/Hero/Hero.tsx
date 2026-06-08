@@ -1,57 +1,85 @@
-import { IconCheck } from '@tabler/icons-react';
-import { Box, Button, Container, Group, Image, List, Text, ThemeIcon, Title } from '@mantine/core';
+import { Badge, Button, Container, Group, Text, Title } from '@mantine/core';
+import { IconArrowRight, IconMapPin } from '@tabler/icons-react';
 import classes from './Hero.module.css';
 import Link from 'next/link';
-import { Anchor } from '@mantine/core';
+
+const stats = [
+  { value: '50+', label: 'Projects Delivered' },
+  { value: '30+', label: 'Enterprise Clients' },
+  { value: '99%', label: 'Client Satisfaction' },
+  { value: '5+', label: 'Years of Innovation' },
+];
 
 export function Hero() {
   return (
-    <Container size="md">
-      <div className={classes.inner}>
-        <div className={classes.content}>
-          <Title className={classes.title}>
-            Welcome to <span className={classes.highlight}>UXQode</span>, the hub for <br /> cutting-edge digital solutions
+    <section className={classes.root} aria-label="Hero">
+      <div className={classes.glow} aria-hidden="true" />
+      <div className={classes.grid} aria-hidden="true" />
+      <Container size="lg" className={classes.container}>
+        <div className={classes.inner}>
+          <Badge
+            variant="outline"
+            color="brand"
+            size="md"
+            radius="xl"
+            className={classes.locationBadge}
+            leftSection={<IconMapPin size={12} />}
+          >
+            Headquartered in Singapore · Serving Globally
+          </Badge>
+
+          <Title component="h1" className={classes.title}>
+            Engineering the Future of{' '}
+            <span className={classes.gradient}>AI&#8209;Powered</span>
+            <br />
+            Digital Experiences
           </Title>
-          <Text c="dimmed" mt="md">
-            At UXQode, we empower businesses to succeed by crafting innovative, user-friendly
-            digital experiences. Explore our tools and services designed to transform ideas into reality.
+
+          <Text component="p" className={classes.description}>
+            UXQode builds intelligent digital solutions that transform how global enterprises
+            operate, compete, and grow. From AI predictions to cloud infrastructure — we
+            engineer technology that scales without limits.
           </Text>
 
-          <List
-            mt={30}
-            spacing="sm"
-            size="sm"
-            icon={
-              <ThemeIcon size={20} radius="xl">
-                <IconCheck size={12} stroke={1.5} />
-              </ThemeIcon>
-            }
-          >
-            <List.Item>
-              <b>Innovative Design</b> – delivering visually stunning, intuitive interfaces for your projects.
-            </List.Item>
-            <List.Item>
-              <b>Seamless Integration</b> – integrating cutting-edge technologies to drive growth.
-            </List.Item>
-            <List.Item>
-              <b>Global Expertise</b> – leveraging years of experience to solve challenges worldwide.
-            </List.Item>
-          </List>
-
-          <Group mt={30}>
-          <Anchor component={Link} href="/#features">
-            <Button radius="xl" size="md" className={classes.control} >
-              Discover More
+          <Group className={classes.controls}>
+            <Button
+              component="a"
+              href="https://aama.io"
+              target="_blank"
+              rel="noopener noreferrer"
+              size="lg"
+              radius="xl"
+              className={classes.primaryBtn}
+              rightSection={<IconArrowRight size={18} />}
+            >
+              Explore aama.io
             </Button>
-            </Anchor>
-            <Anchor component={Link} href="/#contact-us">
-            <Button variant="default" radius="xl" size="md" className={classes.control}>
-              Contact Us
+            <Button
+              component={Link}
+              href="/#contact-us"
+              size="lg"
+              radius="xl"
+              variant="outline"
+              className={classes.secondaryBtn}
+            >
+              Talk to Us
             </Button>
-            </Anchor>
           </Group>
+
+          <div className={classes.statsRow} role="list" aria-label="Company statistics">
+            {stats.map((stat) => (
+              <div key={stat.label} className={classes.statItem} role="listitem">
+                <Text component="span" className={classes.statValue} aria-label={`${stat.value} ${stat.label}`}>
+                  {stat.value}
+                </Text>
+                <Text component="span" className={classes.statLabel}>
+                  {stat.label}
+                </Text>
+              </div>
+            ))}
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </section>
   );
 }

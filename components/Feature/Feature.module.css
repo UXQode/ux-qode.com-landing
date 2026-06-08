@@ -1,39 +1,75 @@
+.section {
+  padding: calc(var(--mantine-spacing-xl) * 4) 0;
+}
+
+.header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
 .title {
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  color: light-dark(var(--mantine-color-dark-9), var(--mantine-color-white));
+
+  @media (max-width: $mantine-breakpoint-md) {
     font-size: 34px;
-    font-weight: 900;
-  
-    @media (max-width: $mantine-breakpoint-sm) {
-      font-size: 24px;
-    }
   }
-  
-  .description {
-    max-width: 600px;
-    margin: auto;
-  
-    &::after {
-      content: '';
-      display: block;
-      background-color: var(--mantine-color-blue-filled);
-      width: 45px;
-      height: 2px;
-      margin-top: var(--mantine-spacing-sm);
-      margin-left: auto;
-      margin-right: auto;
-    }
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    font-size: 26px;
+    letter-spacing: -0.5px;
   }
-  
-  .card {
-    border: 1px solid light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
+}
+
+.titleAccent {
+  background: linear-gradient(135deg, #3ac1ce 0%, #0070f3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.8;
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-gray-4));
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card {
+  border: 1px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
+  background: light-dark(var(--mantine-color-white), var(--mantine-color-dark-7));
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+
+  &:hover {
+    transform: translateY(-6px);
+    box-shadow: light-dark(
+      0 24px 60px rgba(0, 0, 0, 0.1),
+      0 24px 60px rgba(0, 0, 0, 0.4)
+    );
+    border-color: rgba(58, 193, 206, 0.4);
   }
-  
-  .cardTitle {
-    &::after {
-      content: '';
-      display: block;
-      background-color: var(--mantine-color-blue-filled);
-      width: 45px;
-      height: 2px;
-      margin-top: var(--mantine-spacing-sm);
-    }
-  }
+}
+
+.icon {
+  flex-shrink: 0;
+}
+
+.cardTitle {
+  font-size: 18px;
+  font-weight: 700;
+  color: light-dark(var(--mantine-color-dark-9), var(--mantine-color-white));
+  line-height: 1.3;
+  margin: 0;
+}
+
+.cardDesc {
+  font-size: 14px;
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-gray-4));
+  line-height: 1.75;
+}

@@ -1,18 +1,28 @@
-.wrapper {
-    display: flex;
-    align-items: center;
-    color: var(--mantine-color-white);
-  }
-  
-  .icon {
-    margin-right: var(--mantine-spacing-md);
-    background-color: transparent;
-  }
-  
-  .title {
-    color: var(--mantine-color-blue-0);
-  }
-  
-  .description {
-    color: var(--mantine-color-white);
-  }
+.item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--mantine-spacing-md);
+}
+
+.iconBg {
+  background: rgba(58, 193, 206, 0.18) !important;
+  border: 1px solid rgba(58, 193, 206, 0.25) !important;
+  color: #3ac1ce !important;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.itemTitle {
+  font-size: 12px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.45);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 4px;
+}
+
+.itemDescription {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}

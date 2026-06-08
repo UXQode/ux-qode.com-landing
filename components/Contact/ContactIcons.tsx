@@ -1,37 +1,51 @@
-import { IconAt, IconMapPin, IconPhone, IconSun } from '@tabler/icons-react';
-import { Box, Stack, Text } from '@mantine/core';
+import { IconAt, IconMapPin, IconClock } from '@tabler/icons-react';
+import { Stack, Text, ThemeIcon } from '@mantine/core';
 import classes from './ContactIcons.module.css';
 
-interface ContactIconProps extends Omit<React.ComponentPropsWithoutRef<'div'>, 'title'> {
-  icon: typeof IconSun;
-  title: React.ReactNode;
-  description: React.ReactNode;
+interface ContactIconProps {
+  icon: typeof IconAt;
+  title: string;
+  description: string;
 }
 
-function ContactIcon({ icon: Icon, title, description, ...others }: ContactIconProps) {
+function ContactIcon({ icon: Icon, title, description }: ContactIconProps) {
   return (
-    <div className={classes.wrapper} {...others}>
-      <Box mr="md">
-        <Icon size={24} />
-      </Box>
-
+    <div className={classes.item}>
+      <ThemeIcon size={40} radius="xl" className={classes.iconBg}>
+        <Icon size={18} stroke={1.8} />
+      </ThemeIcon>
       <div>
-        <Text size="xs" className={classes.title}>
-          {title}
-        </Text>
-        <Text className={classes.description}>{description}</Text>
+        <Text className={classes.itemTitle}>{title}</Text>
+        <Text className={classes.itemDescription}>{description}</Text>
       </div>
     </div>
   );
 }
 
-const MOCKDATA = [
-  { title: 'Email', description: 'dev@ux-qode.com', icon: IconAt },
-  { title: 'Address', description: 'Robinson Road, #14-04, Singapore Business Federation Center, Singapore (068914)', icon: IconMapPin },
-  { title: 'Working hours', description: '9 a.m. – 6 p.m.', icon: IconSun },
+const contactData = [
+  {
+    icon: IconAt,
+    title: 'Email us',
+    description: 'dev@ux-qode.com',
+  },
+  {
+    icon: IconMapPin,
+    title: 'Singapore HQ',
+    description: 'Robinson Road #14-04, Singapore Business Federation Center, 068914',
+  },
+  {
+    icon: IconClock,
+    title: 'Business Hours',
+    description: 'Monday – Friday, 9 a.m. – 6 p.m. SGT',
+  },
 ];
 
 export function ContactIconsList() {
-  const items = MOCKDATA.map((item, index) => <ContactIcon key={index} {...item} />);
-  return <Stack>{items}</Stack>;
+  return (
+    <Stack gap="lg">
+      {contactData.map((item) => (
+        <ContactIcon key={item.title} {...item} />
+      ))}
+    </Stack>
+  );
 }
