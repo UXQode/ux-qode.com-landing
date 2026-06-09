@@ -1,88 +1,105 @@
-import { IconBrain, IconChartBar, IconSearch, IconDeviceAnalytics, IconCode, IconCloudUpload } from '@tabler/icons-react';
 import {
-  Badge,
-  Card,
-  Container,
-  Group,
-  SimpleGrid,
-  Text,
-  Title,
-  useMantineTheme,
-} from '@mantine/core';
+  IconBrain,
+  IconChartBar,
+  IconCloudUpload,
+  IconCode,
+  IconDeviceAnalytics,
+  IconSearch,
+} from '@tabler/icons-react';
+import { Badge, Card, Container, SimpleGrid, Text, ThemeIcon, Title } from '@mantine/core';
 import classes from './Feature.module.css';
 
-const mockdata = [
+const services = [
   {
     title: 'AI-Powered Predictions',
     description:
-      'Leverage our cutting-edge AI solutions for business forecasting, helping you make data-driven decisions with accuracy and confidence.',
+      'Leverage cutting-edge machine learning for business forecasting. Make data-driven decisions with accuracy and confidence using our proprietary ML models.',
     icon: IconChartBar,
+    gradient: { from: 'cyan', to: 'blue' } as const,
   },
   {
     title: 'Job Matching Algorithms',
     description:
-      'Our intelligent job matching technology connects candidates with opportunities that align with their skills and career aspirations.',
+      'Intelligent matching technology that connects candidates with opportunities perfectly aligned to their skills, experience, and career aspirations.',
     icon: IconSearch,
+    gradient: { from: 'blue', to: 'indigo' } as const,
   },
   {
     title: 'Research & Development',
     description:
-      'Dedicated to innovating in AI and machine learning, exploring solutions that transform industries and drive efficiency.',
+      'Dedicated to pioneering AI and ML innovation — exploring breakthrough solutions that transform industries and drive measurable operational efficiency.',
     icon: IconBrain,
+    gradient: { from: 'violet', to: 'grape' } as const,
   },
   {
     title: 'Advanced Analytics',
     description:
-      'Gain actionable insights with our advanced data analytics services, empowering you to understand trends and improve decision-making.',
+      'Gain actionable insights with our enterprise analytics services, empowering you to understand trends, reduce costs, and make better decisions faster.',
     icon: IconDeviceAnalytics,
+    gradient: { from: 'teal', to: 'cyan' } as const,
   },
   {
     title: 'Custom Software Development',
     description:
-      'Build tailor-made applications that meet your specific needs and help you achieve your business objectives with precision.',
+      'Build tailor-made applications engineered to your exact specifications — helping you achieve your business objectives with precision and performance.',
     icon: IconCode,
+    gradient: { from: 'indigo', to: 'blue' } as const,
   },
   {
     title: 'Cloud Integration Services',
     description:
-      'Seamlessly migrate to the cloud with our integration services, ensuring security, scalability, and efficiency for your operations.',
+      'Seamlessly migrate and integrate with the cloud. We ensure security, horizontal scalability, and maximum operational efficiency for your infrastructure.',
     icon: IconCloudUpload,
+    gradient: { from: 'blue', to: 'cyan' } as const,
   },
 ];
 
 export function Feature() {
-  const theme = useMantineTheme();
-  const features = mockdata.map((feature) => (
-    <Card key={feature.title} shadow="md" radius="md" className={classes.card} padding="xl">
-      <feature.icon size={50} stroke={2} color={theme.colors.blue[6]} />
-      <Text fz="lg" fw={500} className={classes.cardTitle} mt="md">
-        {feature.title}
-      </Text>
-      <Text fz="sm" c="dimmed" mt="sm">
-        {feature.description}
-      </Text>
-    </Card>
-  ));
-
   return (
-    <Container size="lg" py="xl" id='features'>
-      <Group justify="center">
-        <Badge variant="filled" size="lg">
-          Innovating the Future
-        </Badge>
-      </Group>
+    <section className={classes.section} id="features" aria-label="Services">
+      <Container size="lg">
+        <div className={classes.header}>
+          <Badge variant="light" color="brand" size="md" radius="xl">
+            Our Services
+          </Badge>
+          <Title component="h2" className={classes.title} mt="sm">
+            Pioneering AI Solutions for{' '}
+            <span className={classes.titleAccent}>Tomorrow&apos;s Challenges</span>
+          </Title>
+          <Text component="p" className={classes.description} mt="md">
+            At UXQode, we are at the forefront of technology — developing AI products and services
+            that redefine the way businesses operate and people connect worldwide.
+          </Text>
+        </div>
 
-      <Title order={2} className={classes.title} ta="center" mt="sm">
-        Pioneering AI Solutions for Tomorrow's Challenges
-      </Title>
-
-      <Text c="dimmed" className={classes.description} ta="center" mt="md">
-        At UXQode, we are at the forefront of technology, developing AI products that redefine the way businesses operate and people connect.
-      </Text>
-
-      <SimpleGrid cols={{ base: 1, md: 3 }} spacing="xl" mt={50}>
-        {features}
-      </SimpleGrid>
-    </Container>
+        <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="xl" mt={60}>
+          {services.map((service) => (
+            <Card
+              key={service.title}
+              className={classes.card}
+              radius="xl"
+              padding="xl"
+              component="article"
+            >
+              <ThemeIcon
+                size={56}
+                radius="xl"
+                variant="gradient"
+                gradient={service.gradient}
+                className={classes.icon}
+              >
+                <service.icon size={26} stroke={1.8} />
+              </ThemeIcon>
+              <Text component="h3" className={classes.cardTitle} mt="lg">
+                {service.title}
+              </Text>
+              <Text className={classes.cardDesc} mt="sm">
+                {service.description}
+              </Text>
+            </Card>
+          ))}
+        </SimpleGrid>
+      </Container>
+    </section>
   );
 }
