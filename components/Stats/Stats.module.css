@@ -1,0 +1,206 @@
+.section {
+  padding: calc(var(--mantine-spacing-xl) * 4) 0;
+}
+
+.header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.title {
+  font-size: 44px;
+  font-weight: 900;
+  line-height: 1.15;
+  letter-spacing: -1.5px;
+  color: light-dark(var(--mantine-color-dark-9), var(--mantine-color-white));
+
+  @media (max-width: $mantine-breakpoint-md) {
+    font-size: 34px;
+  }
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    font-size: 26px;
+    letter-spacing: -0.5px;
+  }
+}
+
+.accent {
+  background: linear-gradient(135deg, #3ac1ce 0%, #0070f3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.description {
+  font-size: 16px;
+  line-height: 1.8;
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-gray-4));
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ---------- Gauges ---------- */
+.gaugeGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--mantine-spacing-xl);
+  margin-top: calc(var(--mantine-spacing-xl) * 2.5);
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: calc(var(--mantine-spacing-xl) * 1.5) var(--mantine-spacing-md);
+  }
+}
+
+.gauge {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.gaugeRing {
+  position: relative;
+  width: 132px;
+  height: 132px;
+}
+
+.gaugeSvg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.gaugeTrack {
+  fill: none;
+  stroke: light-dark(var(--mantine-color-gray-2), rgba(255, 255, 255, 0.08));
+  stroke-width: 9;
+}
+
+.gaugeFill {
+  fill: none;
+  stroke: #3ac1ce;
+  stroke-width: 9;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 1.8s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
+  filter: drop-shadow(0 2px 8px rgba(58, 193, 206, 0.4));
+}
+
+.gaugeCenter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gaugeValue {
+  font-size: 26px;
+  font-weight: 900;
+  letter-spacing: -1px;
+  background: linear-gradient(135deg, #3ac1ce 0%, #0070f3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-variant-numeric: tabular-nums;
+}
+
+.gaugeCaption {
+  margin-top: var(--mantine-spacing-md);
+  font-size: 13px;
+  font-weight: 500;
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-gray-4));
+  max-width: 140px;
+}
+
+/* ---------- Comparison infographic ---------- */
+.compare {
+  margin-top: calc(var(--mantine-spacing-xl) * 3);
+  max-width: 760px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: calc(var(--mantine-spacing-xl) * 1.5);
+  border-radius: 20px;
+  background: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7));
+  border: 1px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
+}
+
+.compareHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--mantine-spacing-lg);
+}
+
+.compareTitle {
+  font-size: 18px;
+  font-weight: 800;
+  color: light-dark(var(--mantine-color-dark-9), var(--mantine-color-white));
+}
+
+.compareSub {
+  font-size: 13px;
+  font-weight: 600;
+  color: #3ac1ce;
+}
+
+.compareRow {
+  display: flex;
+  align-items: center;
+  gap: var(--mantine-spacing-md);
+  margin-top: var(--mantine-spacing-md);
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+  }
+}
+
+.compareLabel {
+  flex: 0 0 220px;
+  font-size: 14px;
+  color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-gray-3));
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    flex: none;
+  }
+}
+
+.compareBarTrack {
+  flex: 1;
+  height: 36px;
+  border-radius: 10px;
+  background: light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-6));
+  overflow: hidden;
+  width: 100%;
+}
+
+.compareBar {
+  height: 100%;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding-right: 12px;
+  min-width: 64px;
+  transition: width 1.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.brand {
+  background: linear-gradient(90deg, #3ac1ce, #0070f3);
+  box-shadow: 0 4px 16px rgba(58, 193, 206, 0.4);
+}
+
+.muted {
+  background: light-dark(var(--mantine-color-gray-4), var(--mantine-color-dark-4));
+}
+
+.compareWeeks {
+  font-size: 13px;
+  font-weight: 800;
+  color: #fff;
+  white-space: nowrap;
+}

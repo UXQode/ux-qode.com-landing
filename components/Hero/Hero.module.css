@@ -3,36 +3,80 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 68px;
+  padding-top: 110px;
+  padding-bottom: 60px;
   overflow: hidden;
 }
 
 .glow {
   position: absolute;
-  top: -25%;
-  left: 50%;
+  top: -20%;
+  left: 65%;
   transform: translateX(-50%);
-  width: 1000px;
-  height: 1000px;
+  width: 900px;
+  height: 900px;
   border-radius: 50%;
   background: radial-gradient(
     circle,
-    light-dark(rgba(58, 193, 206, 0.12), rgba(58, 193, 206, 0.18)) 0%,
+    light-dark(rgba(58, 193, 206, 0.14), rgba(58, 193, 206, 0.2)) 0%,
     transparent 65%
   );
   pointer-events: none;
   animation: breathe 7s ease-in-out infinite;
 }
 
+.glowSecondary {
+  position: absolute;
+  bottom: -25%;
+  left: -10%;
+  width: 700px;
+  height: 700px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    light-dark(rgba(0, 112, 243, 0.1), rgba(0, 112, 243, 0.16)) 0%,
+    transparent 65%
+  );
+  pointer-events: none;
+  animation: breathe 9s ease-in-out infinite reverse;
+}
+
 @keyframes breathe {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.7;
     transform: translateX(-50%) scale(1);
   }
   50% {
     opacity: 1;
-    transform: translateX(-50%) scale(1.1);
+    transform: translateX(-50%) scale(1.12);
   }
+}
+
+.orb1,
+.orb2 {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+}
+.orb1 {
+  width: 14px;
+  height: 14px;
+  top: 28%;
+  left: 12%;
+  background: rgba(58, 193, 206, 0.5);
+  box-shadow: 0 0 24px 4px rgba(58, 193, 206, 0.5);
+  animation: float-slow 7s ease-in-out infinite;
+}
+.orb2 {
+  width: 9px;
+  height: 9px;
+  bottom: 24%;
+  right: 8%;
+  background: rgba(0, 112, 243, 0.55);
+  box-shadow: 0 0 20px 4px rgba(0, 112, 243, 0.45);
+  animation: float-slow 9s ease-in-out infinite 1.5s;
 }
 
 .grid {
@@ -44,7 +88,7 @@
     transparent 1px
   );
   background-size: 36px 36px;
-  mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+  mask-image: radial-gradient(ellipse 90% 80% at 50% 40%, black 30%, transparent 100%);
   pointer-events: none;
 }
 
@@ -53,53 +97,106 @@
   z-index: 1;
 }
 
+.layout {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: calc(var(--mantine-spacing-xl) * 2);
+  align-items: center;
+
+  @media (max-width: $mantine-breakpoint-md) {
+    grid-template-columns: 1fr;
+    gap: calc(var(--mantine-spacing-xl) * 2.5);
+  }
+}
+
 .inner {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  text-align: center;
-  padding: calc(var(--mantine-spacing-xl) * 4) 0 calc(var(--mantine-spacing-xl) * 3);
+  align-items: flex-start;
+  text-align: left;
+  animation: hero-enter 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+
+  @media (max-width: $mantine-breakpoint-md) {
+    align-items: center;
+    text-align: center;
+  }
+}
+
+@keyframes hero-enter {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.visualCol {
+  animation: hero-enter 1s cubic-bezier(0.22, 1, 0.36, 1) 0.15s both;
+
+  @media (max-width: $mantine-breakpoint-md) {
+    order: -1;
+  }
 }
 
 .locationBadge {
-  margin-bottom: var(--mantine-spacing-xl);
+  margin-bottom: var(--mantine-spacing-lg);
   font-weight: 500;
   letter-spacing: 0.01em;
 }
 
 .title {
-  font-size: 72px;
+  font-size: 60px;
   font-weight: 900;
   line-height: 1.08;
-  letter-spacing: -3px;
-  max-width: 900px;
+  letter-spacing: -2.5px;
+  max-width: 640px;
   color: light-dark(var(--mantine-color-dark-9), var(--mantine-color-white));
-  margin-bottom: var(--mantine-spacing-xl);
+  margin-bottom: var(--mantine-spacing-lg);
 
   @media (max-width: $mantine-breakpoint-md) {
-    font-size: 50px;
+    font-size: 48px;
     letter-spacing: -2px;
   }
 
   @media (max-width: $mantine-breakpoint-sm) {
-    font-size: 36px;
+    font-size: 34px;
     letter-spacing: -1px;
   }
 }
 
 .gradient {
   background: linear-gradient(135deg, #3ac1ce 10%, #0070f3 55%, #7c3aed 100%);
+  background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  animation: gradient-pan 6s ease infinite;
+}
+
+@keyframes gradient-pan {
+  0%,
+  100% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
 }
 
 .description {
   font-size: 18px;
-  line-height: 1.8;
+  line-height: 1.75;
   color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-gray-4));
-  max-width: 600px;
-  margin-bottom: calc(var(--mantine-spacing-xl) * 1.5);
+  max-width: 560px;
+  margin-bottom: calc(var(--mantine-spacing-xl) * 1.25);
+
+  & strong {
+    color: light-dark(var(--mantine-color-dark-9), var(--mantine-color-white));
+    font-weight: 700;
+  }
 
   @media (max-width: $mantine-breakpoint-sm) {
     font-size: 16px;
@@ -108,9 +205,12 @@
 
 .controls {
   gap: var(--mantine-spacing-md);
-  margin-bottom: calc(var(--mantine-spacing-xl) * 2.5);
+  margin-bottom: calc(var(--mantine-spacing-xl) * 1.75);
   flex-wrap: wrap;
-  justify-content: center;
+
+  @media (max-width: $mantine-breakpoint-md) {
+    justify-content: center;
+  }
 }
 
 .primaryBtn {
@@ -149,15 +249,18 @@
 
 .statsRow {
   display: flex;
-  gap: calc(var(--mantine-spacing-xl) * 2);
-  padding-top: calc(var(--mantine-spacing-xl) * 1.5);
+  gap: calc(var(--mantine-spacing-xl) * 1.5);
+  padding-top: calc(var(--mantine-spacing-xl) * 1.25);
   border-top: 1px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-6));
   width: 100%;
-  max-width: 680px;
-  justify-content: center;
+  max-width: 560px;
+
+  @media (max-width: $mantine-breakpoint-md) {
+    justify-content: center;
+  }
 
   @media (max-width: $mantine-breakpoint-xs) {
-    gap: var(--mantine-spacing-xl);
+    gap: var(--mantine-spacing-lg);
     flex-wrap: wrap;
   }
 }
@@ -165,19 +268,23 @@
 .statItem {
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 4px;
+
+  @media (max-width: $mantine-breakpoint-md) {
+    align-items: center;
+  }
 }
 
 .statValue {
   display: block;
-  font-size: 38px;
+  font-size: 36px;
   font-weight: 900;
   background: linear-gradient(135deg, #3ac1ce 0%, #0070f3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   line-height: 1;
+  font-variant-numeric: tabular-nums;
 
   @media (max-width: $mantine-breakpoint-sm) {
     font-size: 28px;

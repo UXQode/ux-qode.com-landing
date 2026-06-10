@@ -42,6 +42,9 @@
 }
 
 .card {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
   border: 1px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
   background: light-dark(var(--mantine-color-white), var(--mantine-color-dark-7));
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
@@ -54,10 +57,37 @@
     );
     border-color: rgba(58, 193, 206, 0.4);
   }
+
+  &:hover .iconHalo {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  &:hover .icon {
+    transform: translateY(-3px) rotate(-4deg);
+  }
+}
+
+.iconHalo {
+  position: absolute;
+  top: -40px;
+  left: -40px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(58, 193, 206, 0.18) 0%, transparent 70%);
+  opacity: 0;
+  transform: scale(0.6);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
 }
 
 .icon {
   flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  box-shadow: 0 8px 24px rgba(58, 193, 206, 0.25);
 }
 
 .cardTitle {

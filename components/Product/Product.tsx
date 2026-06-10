@@ -1,30 +1,53 @@
-import { Badge, Button, Container, Group, SimpleGrid, Text, ThemeIcon, Title } from '@mantine/core';
 import {
   IconArrowRight,
-  IconBolt,
-  IconChartDots3,
-  IconUsers,
+  IconBuildingBank,
+  IconCalculator,
+  IconCashBanknote,
+  IconChartPie,
+  IconShieldCheck,
+  IconUserCheck,
 } from '@tabler/icons-react';
+import { Badge, Button, Container, Group, SimpleGrid, Text, ThemeIcon, Title } from '@mantine/core';
+import { Reveal } from '@/components/Reveal/Reveal';
+import { FundFlow } from './FundFlow';
 import classes from './Product.module.css';
 
 const highlights = [
   {
-    icon: IconBolt,
-    title: 'Real-Time AI Predictions',
+    icon: IconBuildingBank,
+    title: 'Fund Administration',
     description:
-      'Get instant business forecasts powered by state-of-the-art machine learning models trained on global data.',
+      'Run admin end-to-end with a white-labeled investor portal — real-time positions, statements, and documents in one secure place.',
   },
   {
-    icon: IconUsers,
-    title: 'Intelligent Talent Matching',
+    icon: IconCalculator,
+    title: 'Fund Accounting & NAV',
     description:
-      'Connect the right people with the right opportunities using advanced behavioural AI and semantic search.',
+      'IFRS-compliant accounting with automated NAV calculations, so your books and valuations stay accurate without the spreadsheets.',
   },
   {
-    icon: IconChartDots3,
-    title: 'Unified Analytics Dashboard',
+    icon: IconUserCheck,
+    title: 'Investor Onboarding',
     description:
-      'Visualise every metric that matters in one place — from hiring pipelines to business KPIs and market signals.',
+      'KYC/AML-compliant onboarding flows that get new LPs verified and invested in days, not weeks — fully audit-ready.',
+  },
+  {
+    icon: IconCashBanknote,
+    title: 'Capital Calls & Distributions',
+    description:
+      'Automate capital call notices, drawdowns, and distribution waterfalls with accurate allocations across every LP.',
+  },
+  {
+    icon: IconChartPie,
+    title: 'Portfolio Dashboards',
+    description:
+      'Real-time dashboards and reporting across NAV, IRR, exposure, and cash flows — for managers and investors alike.',
+  },
+  {
+    icon: IconShieldCheck,
+    title: 'Regulatory Compliance',
+    description:
+      'MAS-aligned compliance automation, VAPT-certified security, and a 99.9% uptime SLA you can put in front of an auditor.',
   },
 ];
 
@@ -34,54 +57,68 @@ export function Product() {
       <Container size="lg">
         <div className={classes.wrapper}>
           <div className={classes.glow} aria-hidden="true" />
+          <div className={classes.glowAlt} aria-hidden="true" />
 
           <div className={classes.header}>
-            <Badge variant="filled" color="brand" size="md" radius="xl" className={classes.badge}>
-              Crown Product
-            </Badge>
-            <Title component="h2" className={classes.title} mt="sm">
-              Meet{' '}
-              <span className={classes.productName}>aama.io</span>
-              {' '}— The Intelligent Platform
-            </Title>
-            <Text component="p" className={classes.description} mt="md">
-              aama.io is UXQode&apos;s flagship AI platform — a unified engine that combines predictive
-              analytics, smart talent matching, and business intelligence to help enterprises
-              make faster, smarter decisions at a global scale.
-            </Text>
-            <Group justify="center" mt="xl">
-              <Button
-                component="a"
-                href="https://aama.io"
-                target="_blank"
-                rel="noopener noreferrer"
-                size="md"
-                radius="xl"
-                className={classes.cta}
-                rightSection={<IconArrowRight size={16} />}
-              >
-                Launch aama.io
-              </Button>
-            </Group>
+            <Reveal direction="scale">
+              <Badge variant="filled" color="brand" size="md" radius="xl" className={classes.badge}>
+                Crown Product · Fund Management
+              </Badge>
+            </Reveal>
+            <Reveal delay={80}>
+              <Title component="h2" className={classes.title} mt="sm">
+                Meet <span className={classes.productName}>aama.io</span>
+                <br />
+                Run your entire fund on one platform
+              </Title>
+            </Reveal>
+            <Reveal delay={140}>
+              <Text component="p" className={classes.description} mt="md">
+                aama.io is UXQode&apos;s flagship platform — end-to-end fund management software
+                that replaces the spreadsheets and disconnected tools fund managers rely on today.
+                Built for boutique private equity, venture capital, hedge funds, family offices, and
+                SPVs, it brings administration, accounting, compliance, and investor reporting into
+                a single integrated system.
+              </Text>
+            </Reveal>
+            <Reveal delay={200}>
+              <Group justify="center" mt="xl">
+                <Button
+                  component="a"
+                  href="https://aama.io"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  size="md"
+                  radius="xl"
+                  className={classes.cta}
+                  rightSection={<IconArrowRight size={16} />}
+                >
+                  Launch aama.io
+                </Button>
+              </Group>
+            </Reveal>
           </div>
 
-          <SimpleGrid cols={{ base: 1, sm: 3 }} spacing="xl" mt={64}>
-            {highlights.map((h) => (
-              <div key={h.title} className={classes.card}>
-                <ThemeIcon
-                  size={52}
-                  radius="xl"
-                  className={classes.iconWrapper}
-                >
-                  <h.icon size={24} stroke={1.8} />
-                </ThemeIcon>
-                <Text className={classes.cardTitle} mt="md">
-                  {h.title}
-                </Text>
-                <Text className={classes.cardDesc} mt="xs">
-                  {h.description}
-                </Text>
-              </div>
+          {/* Animated fund-lifecycle infographic */}
+          <Reveal delay={120} className={classes.flowWrap}>
+            <FundFlow />
+          </Reveal>
+
+          <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="xl" mt={56}>
+            {highlights.map((h, i) => (
+              <Reveal key={h.title} delay={i * 80}>
+                <div className={classes.card}>
+                  <ThemeIcon size={52} radius="xl" className={classes.iconWrapper}>
+                    <h.icon size={24} stroke={1.8} />
+                  </ThemeIcon>
+                  <Text className={classes.cardTitle} mt="md">
+                    {h.title}
+                  </Text>
+                  <Text className={classes.cardDesc} mt="xs">
+                    {h.description}
+                  </Text>
+                </div>
+              </Reveal>
             ))}
           </SimpleGrid>
         </div>

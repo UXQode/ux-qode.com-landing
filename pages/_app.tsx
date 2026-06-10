@@ -1,8 +1,9 @@
 import '@mantine/core/styles.css';
+import '../styles/globals.css';
 
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import { MantineProvider, ColorSchemeScript } from '@mantine/core';
+import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { theme } from '../theme';
 
 export default function App({ Component, pageProps }: AppProps) {

@@ -1,25 +1,25 @@
-import { Anchor, Container, Group, SimpleGrid, Stack, Text } from '@mantine/core';
-import { IconBrandLinkedin, IconBrandTwitter, IconBrandGithub } from '@tabler/icons-react';
 import Link from 'next/link';
+import { IconBrandFacebook, IconBrandInstagram, IconBrandLinkedin } from '@tabler/icons-react';
+import { Anchor, Container, Group, SimpleGrid, Stack, Text } from '@mantine/core';
 import classes from './Footer.module.css';
 
 const footerLinks = [
   {
-    heading: 'Products',
+    heading: 'aama.io',
     links: [
-      { label: 'aama.io', href: 'https://aama.io', external: true },
-      { label: 'AI Predictions', href: '/#features' },
-      { label: 'Talent Matching', href: '/#features' },
-      { label: 'Analytics', href: '/#features' },
+      { label: 'Fund Management', href: 'https://aama.io', external: true },
+      { label: 'Fund Administration', href: '/#product' },
+      { label: 'Investor Onboarding', href: '/#product' },
+      { label: 'Compliance & Reporting', href: '/#product' },
     ],
   },
   {
     heading: 'Services',
     links: [
-      { label: 'Custom Development', href: '/#features' },
-      { label: 'Cloud Integration', href: '/#features' },
-      { label: 'Research & Development', href: '/#features' },
-      { label: 'AI Consulting', href: '/#contact-us' },
+      { label: 'Enterprise Software', href: '/#features' },
+      { label: 'AI Agent Solutions', href: '/#features' },
+      { label: 'Mobile Apps', href: '/#features' },
+      { label: 'IT Consulting', href: '/#contact-us' },
     ],
   },
   {
@@ -33,9 +33,13 @@ const footerLinks = [
 ];
 
 const socials = [
-  { icon: IconBrandLinkedin, label: 'LinkedIn', href: 'https://linkedin.com' },
-  { icon: IconBrandTwitter, label: 'Twitter', href: 'https://twitter.com' },
-  { icon: IconBrandGithub, label: 'GitHub', href: 'https://github.com' },
+  {
+    icon: IconBrandLinkedin,
+    label: 'LinkedIn',
+    href: 'https://www.linkedin.com/company/uxqode/',
+  },
+  { icon: IconBrandFacebook, label: 'Facebook', href: 'https://www.facebook.com/UXQode/' },
+  { icon: IconBrandInstagram, label: 'Instagram', href: 'https://www.instagram.com/uxqode/' },
 ];
 
 export function Footer() {
@@ -49,7 +53,8 @@ export function Footer() {
               <span className={classes.logoQode}>Qode</span>
             </Anchor>
             <Text className={classes.tagline} mt="sm">
-              AI-powered digital solutions engineered for a global future. Headquartered in
+              AI-powered digital solutions engineered for a global future — and the makers of
+              aama.io, fund-management software for modern fund managers. Headquartered in
               Singapore.
             </Text>
             <Group gap="xs" mt="lg">
@@ -103,8 +108,8 @@ export function Footer() {
 
         <div className={classes.bottom}>
           <Text className={classes.copyright}>
-            © {new Date().getFullYear()} UXQode Pte. Ltd. · Registered in Singapore ·
-            All rights reserved.
+            © {new Date().getFullYear()} UXQode Pte. Ltd. · Registered in Singapore · All rights
+            reserved.
           </Text>
           <Text className={classes.sister}>
             Sister company of{' '}

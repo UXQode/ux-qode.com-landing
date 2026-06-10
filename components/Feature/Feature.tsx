@@ -1,56 +1,57 @@
 import {
-  IconBrain,
-  IconChartBar,
-  IconCloudUpload,
-  IconCode,
-  IconDeviceAnalytics,
-  IconSearch,
+  IconBuildingSkyscraper,
+  IconDeviceMobileCode,
+  IconPlugConnected,
+  IconRobot,
+  IconServerBolt,
+  IconUsersGroup,
 } from '@tabler/icons-react';
 import { Badge, Card, Container, SimpleGrid, Text, ThemeIcon, Title } from '@mantine/core';
+import { Reveal } from '@/components/Reveal/Reveal';
 import classes from './Feature.module.css';
 
 const services = [
   {
-    title: 'AI-Powered Predictions',
+    title: 'Enterprise Software Development',
     description:
-      'Leverage cutting-edge machine learning for business forecasting. Make data-driven decisions with accuracy and confidence using our proprietary ML models.',
-    icon: IconChartBar,
+      'Intelligent, scalable platforms built to your exact specifications — from architecture to delivery — engineered for performance and reliability at enterprise scale.',
+    icon: IconServerBolt,
     gradient: { from: 'cyan', to: 'blue' } as const,
   },
   {
-    title: 'Job Matching Algorithms',
+    title: 'AI Agent Solutions',
     description:
-      'Intelligent matching technology that connects candidates with opportunities perfectly aligned to their skills, experience, and career aspirations.',
-    icon: IconSearch,
-    gradient: { from: 'blue', to: 'indigo' } as const,
-  },
-  {
-    title: 'Research & Development',
-    description:
-      'Dedicated to pioneering AI and ML innovation — exploring breakthrough solutions that transform industries and drive measurable operational efficiency.',
-    icon: IconBrain,
+      'AI-automated solutions that take the operational hassle off your team — intelligent agents and workflows that integrate with your existing systems.',
+    icon: IconRobot,
     gradient: { from: 'violet', to: 'grape' } as const,
   },
   {
-    title: 'Advanced Analytics',
+    title: 'Mobile Application Development',
     description:
-      'Gain actionable insights with our enterprise analytics services, empowering you to understand trends, reduce costs, and make better decisions faster.',
-    icon: IconDeviceAnalytics,
+      'High-performance mobile apps for iOS and Android, crafted with a product mindset to deliver fast, polished experiences your users love.',
+    icon: IconDeviceMobileCode,
+    gradient: { from: 'blue', to: 'indigo' } as const,
+  },
+  {
+    title: 'Business IT Consulting',
+    description:
+      'Strategic guidance that aligns technology with your business goals — helping you establish a digital identity and ship the right product.',
+    icon: IconUsersGroup,
     gradient: { from: 'teal', to: 'cyan' } as const,
   },
   {
-    title: 'Custom Software Development',
+    title: 'API & Cloud Integration',
     description:
-      'Build tailor-made applications engineered to your exact specifications — helping you achieve your business objectives with precision and performance.',
-    icon: IconCode,
-    gradient: { from: 'indigo', to: 'blue' } as const,
+      'Seamlessly connect and integrate your systems and the cloud — secure, horizontally scalable, and built for maximum operational efficiency.',
+    icon: IconPlugConnected,
+    gradient: { from: 'blue', to: 'cyan' } as const,
   },
   {
-    title: 'Cloud Integration Services',
+    title: 'Fintech & Capital Markets',
     description:
-      'Seamlessly migrate and integrate with the cloud. We ensure security, horizontal scalability, and maximum operational efficiency for your infrastructure.',
-    icon: IconCloudUpload,
-    gradient: { from: 'blue', to: 'cyan' } as const,
+      'Deep experience building fintech and investment platforms — including aama.io — for mutual funds, capital markets, and modern fund managers.',
+    icon: IconBuildingSkyscraper,
+    gradient: { from: 'indigo', to: 'blue' } as const,
   },
 ];
 
@@ -59,44 +60,49 @@ export function Feature() {
     <section className={classes.section} id="features" aria-label="Services">
       <Container size="lg">
         <div className={classes.header}>
-          <Badge variant="light" color="brand" size="md" radius="xl">
-            Our Services
-          </Badge>
-          <Title component="h2" className={classes.title} mt="sm">
-            Pioneering AI Solutions for{' '}
-            <span className={classes.titleAccent}>Tomorrow&apos;s Challenges</span>
-          </Title>
-          <Text component="p" className={classes.description} mt="md">
-            At UXQode, we are at the forefront of technology — developing AI products and services
-            that redefine the way businesses operate and people connect worldwide.
-          </Text>
+          <Reveal direction="scale">
+            <Badge variant="light" color="brand" size="md" radius="xl">
+              Our Services
+            </Badge>
+          </Reveal>
+          <Reveal delay={80}>
+            <Title component="h2" className={classes.title} mt="sm">
+              Enterprise-Grade Digital Solutions that{' '}
+              <span className={classes.titleAccent}>Power Innovation</span>
+            </Title>
+          </Reveal>
+          <Reveal delay={140}>
+            <Text component="p" className={classes.description} mt="md">
+              UXQode partners with ambitious businesses to build intelligent, scalable, and secure
+              platforms — from enterprise software and AI agents to the fintech engineering behind
+              aama.io. A global perspective with localized service, delivered from Singapore and
+              Nepal.
+            </Text>
+          </Reveal>
         </div>
 
         <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="xl" mt={60}>
-          {services.map((service) => (
-            <Card
-              key={service.title}
-              className={classes.card}
-              radius="xl"
-              padding="xl"
-              component="article"
-            >
-              <ThemeIcon
-                size={56}
-                radius="xl"
-                variant="gradient"
-                gradient={service.gradient}
-                className={classes.icon}
-              >
-                <service.icon size={26} stroke={1.8} />
-              </ThemeIcon>
-              <Text component="h3" className={classes.cardTitle} mt="lg">
-                {service.title}
-              </Text>
-              <Text className={classes.cardDesc} mt="sm">
-                {service.description}
-              </Text>
-            </Card>
+          {services.map((service, i) => (
+            <Reveal key={service.title} delay={(i % 3) * 90}>
+              <Card className={classes.card} radius="xl" padding="xl" component="article">
+                <div className={classes.iconHalo} aria-hidden="true" />
+                <ThemeIcon
+                  size={56}
+                  radius="xl"
+                  variant="gradient"
+                  gradient={service.gradient}
+                  className={classes.icon}
+                >
+                  <service.icon size={26} stroke={1.8} />
+                </ThemeIcon>
+                <Text component="h3" className={classes.cardTitle} mt="lg">
+                  {service.title}
+                </Text>
+                <Text className={classes.cardDesc} mt="sm">
+                  {service.description}
+                </Text>
+              </Card>
+            </Reveal>
           ))}
         </SimpleGrid>
       </Container>
