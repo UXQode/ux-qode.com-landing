@@ -35,6 +35,44 @@
   width: 100%;
 }
 
+/* Glowing packets that travel along the connector after it fills */
+.packet {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 7px;
+  height: 7px;
+  margin-top: -3.5px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 0 10px 2px rgba(58, 193, 206, 0.9);
+  opacity: 0;
+  animation: packet-run 3.6s linear infinite;
+}
+
+@keyframes packet-run {
+  0% {
+    left: 0;
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .packet {
+    display: none;
+  }
+}
+
 .step {
   position: relative;
   z-index: 1;

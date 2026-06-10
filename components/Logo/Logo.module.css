@@ -1,0 +1,21 @@
+.logo {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.light,
+.dark {
+  display: block;
+  height: 100%;
+  width: auto;
+}
+
+/* Swap artwork with the Mantine color scheme (attribute set on <html>) */
+[data-mantine-color-scheme='dark'] .light {
+  display: none;
+}
+
+[data-mantine-color-scheme='light'] .dark {
+  display: none;
+}

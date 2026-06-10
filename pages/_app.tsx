@@ -4,6 +4,8 @@ import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
+import { AIBackground } from '@/components/AIBackground/AIBackground';
+import { ScrollProgress } from '@/components/ScrollProgress/ScrollProgress';
 import { theme } from '../theme';
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -20,10 +22,13 @@ export default function App({ Component, pageProps }: AppProps) {
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
-        <link rel="shortcut icon" href="/favicon.svg" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
         <ColorSchemeScript defaultColorScheme="auto" />
       </Head>
       <MantineProvider theme={theme} defaultColorScheme="auto">
+        <AIBackground />
+        <ScrollProgress />
         <Component {...pageProps} />
       </MantineProvider>
     </>

@@ -28,6 +28,13 @@ export function FundFlow() {
     <div className={classes.flow} ref={ref} aria-hidden="true">
       <div className={classes.track}>
         <div className={`${classes.trackFill} ${inView ? classes.trackFillOn : ''}`} />
+        {inView && (
+          <>
+            <span className={classes.packet} style={{ animationDelay: '2.4s' }} />
+            <span className={classes.packet} style={{ animationDelay: '3.6s' }} />
+            <span className={classes.packet} style={{ animationDelay: '4.8s' }} />
+          </>
+        )}
       </div>
       {steps.map((s, i) => (
         <div

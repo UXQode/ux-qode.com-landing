@@ -15,7 +15,7 @@ const structuredData = {
       '@id': 'https://ux-qode.com/#organization',
       name: 'UXQode',
       url: 'https://ux-qode.com',
-      logo: 'https://ux-qode.com/favicon.svg',
+      logo: 'https://ux-qode.com/logo.png',
       description:
         'UXQode is a Singapore-headquartered technology company delivering enterprise-grade digital solutions — enterprise software development, AI agent solutions, mobile applications, and IT consulting — and the maker of aama.io, end-to-end fund management software. Operating from Singapore and Nepal.',
       address: {

@@ -1,8 +1,11 @@
 import Link from 'next/link';
 import { IconArrowRight, IconMapPin } from '@tabler/icons-react';
 import { Badge, Button, Container, Group, Text, Title } from '@mantine/core';
+import { Marquee } from '@/components/Marquee/Marquee';
 import { useCountUp } from '@/hooks/useCountUp';
 import { useInView } from '@/hooks/useInView';
+import { useMagnetic } from '@/hooks/useMagnetic';
+import { useMouseParallax } from '@/hooks/useMouseParallax';
 import { HeroVisual } from './HeroVisual';
 import classes from './Hero.module.css';
 
@@ -11,6 +14,16 @@ const stats = [
   { value: 30, suffix: '+', decimals: 0, label: 'Apps Delivered' },
   { value: 20, suffix: '+', decimals: 0, label: 'Engineers & Designers' },
   { value: 2, suffix: '', decimals: 0, label: 'Global Hubs · SG & NP' },
+];
+
+const fundTypes = [
+  'Private Equity',
+  'Venture Capital',
+  'Hedge Funds',
+  'Family Offices',
+  'Mutual Funds',
+  'Single-Asset SPVs',
+  'Fund Administrators',
 ];
 
 function StatItem({
@@ -44,13 +57,21 @@ function StatItem({
 }
 
 export function Hero() {
+  const sceneRef = useMouseParallax<HTMLDivElement>();
+  const magneticRef = useMagnetic<HTMLAnchorElement>(0.35);
+
   return (
-    <section className={classes.root} aria-label="Hero">
-      <div className={classes.glow} aria-hidden="true" />
-      <div className={classes.glowSecondary} aria-hidden="true" />
-      <div className={classes.grid} aria-hidden="true" />
-      <div className={classes.orb1} aria-hidden="true" />
-      <div className={classes.orb2} aria-hidden="true" />
+    <section className={classes.root} aria-label="Hero" ref={sceneRef}>
+      {/* Parallax depth layers — drift with the cursor at different rates */}
+      <div className={classes.glow} aria-hidden="true" style={{ ['--depth' as string]: 1 }} />
+      <div
+        className={classes.glowSecondary}
+        aria-hidden="true"
+        style={{ ['--depth' as string]: -1.4 }}
+      />
+      <div className={classes.orb1} aria-hidden="true" style={{ ['--depth' as string]: 2.6 }} />
+      <div className={classes.orb2} aria-hidden="true" style={{ ['--depth' as string]: -2.2 }} />
+      <div className={classes.orb3} aria-hidden="true" style={{ ['--depth' as string]: 3.4 }} />
 
       <Container size="lg" className={classes.container}>
         <div className={classes.layout}>
@@ -80,6 +101,7 @@ export function Hero() {
 
             <Group className={classes.controls}>
               <Button
+                ref={magneticRef}
                 component="a"
                 href="https://aama.io"
                 target="_blank"
@@ -113,6 +135,13 @@ export function Hero() {
           <div className={classes.visualCol}>
             <HeroVisual />
           </div>
+        </div>
+      </Container>
+
+      <Container size="lg" className={classes.container}>
+        <div className={classes.marqueeWrap}>
+          <span className={classes.marqueeLabel}>Built for</span>
+          <Marquee items={fundTypes} duration={32} />
         </div>
       </Container>
     </section>

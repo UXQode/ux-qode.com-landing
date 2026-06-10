@@ -1,0 +1,83 @@
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background: light-dark(
+    radial-gradient(ellipse 120% 80% at 50% -10%, #ffffff 0%, #f5f8fc 55%, #eef3f9 100%),
+    radial-gradient(ellipse 120% 80% at 50% -10%, #0a1020 0%, #070b15 55%, #04060d 100%)
+  );
+}
+
+/* Two restrained brand-tone glows for depth (no playful purple) */
+.glowA,
+.glowB {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+}
+
+.glowA {
+  width: 52vw;
+  height: 52vw;
+  top: -16vw;
+  right: -10vw;
+  background: radial-gradient(circle, rgba(58, 193, 206, 0.28), transparent 68%);
+  opacity: light-dark(0.45, 0.6);
+  animation: drift 30s ease-in-out infinite;
+}
+
+.glowB {
+  width: 46vw;
+  height: 46vw;
+  bottom: -14vw;
+  left: -12vw;
+  background: radial-gradient(circle, rgba(0, 112, 243, 0.24), transparent 68%);
+  opacity: light-dark(0.4, 0.55);
+  animation: drift 38s ease-in-out infinite reverse;
+}
+
+/* Faint technical grid, faded toward the edges */
+.grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(
+      light-dark(rgba(10, 30, 50, 0.05), rgba(120, 200, 220, 0.05)) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      light-dark(rgba(10, 30, 50, 0.05), rgba(120, 200, 220, 0.05)) 1px,
+      transparent 1px
+    );
+  background-size: 54px 54px;
+  mask-image: radial-gradient(ellipse 85% 75% at 50% 40%, black 20%, transparent 95%);
+  -webkit-mask-image: radial-gradient(ellipse 85% 75% at 50% 40%, black 20%, transparent 95%);
+}
+
+/* Neural constellation canvas */
+.canvas {
+  position: absolute;
+  inset: 0;
+  opacity: light-dark(0.55, 0.7);
+}
+
+/* Subtle vignette to keep edges calm and content centered */
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 90% 80% at 50% 45%,
+    transparent 55%,
+    light-dark(rgba(230, 238, 248, 0.5), rgba(3, 5, 12, 0.55)) 100%
+  );
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glowA,
+  .glowB {
+    animation: none;
+  }
+}

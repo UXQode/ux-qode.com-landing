@@ -8,7 +8,35 @@ import {
 } from '@tabler/icons-react';
 import { Badge, Card, Container, SimpleGrid, Text, ThemeIcon, Title } from '@mantine/core';
 import { Reveal } from '@/components/Reveal/Reveal';
+import { useTilt } from '@/hooks/useTilt';
 import classes from './Feature.module.css';
+
+type Service = (typeof services)[number];
+
+function ServiceCard({ service }: { service: Service }) {
+  const tiltRef = useTilt<HTMLDivElement>({ max: 7, scale: 1.03, lift: 14 });
+  return (
+    <Card ref={tiltRef} className={classes.card} radius="xl" padding="xl" component="article">
+      <div className={classes.sheen} aria-hidden="true" />
+      <div className={classes.iconHalo} aria-hidden="true" />
+      <ThemeIcon
+        size={56}
+        radius="xl"
+        variant="gradient"
+        gradient={service.gradient}
+        className={classes.icon}
+      >
+        <service.icon size={26} stroke={1.8} />
+      </ThemeIcon>
+      <Text component="h3" className={classes.cardTitle} mt="lg">
+        {service.title}
+      </Text>
+      <Text className={classes.cardDesc} mt="sm">
+        {service.description}
+      </Text>
+    </Card>
+  );
+}
 
 const services = [
   {
@@ -84,24 +112,7 @@ export function Feature() {
         <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="xl" mt={60}>
           {services.map((service, i) => (
             <Reveal key={service.title} delay={(i % 3) * 90}>
-              <Card className={classes.card} radius="xl" padding="xl" component="article">
-                <div className={classes.iconHalo} aria-hidden="true" />
-                <ThemeIcon
-                  size={56}
-                  radius="xl"
-                  variant="gradient"
-                  gradient={service.gradient}
-                  className={classes.icon}
-                >
-                  <service.icon size={26} stroke={1.8} />
-                </ThemeIcon>
-                <Text component="h3" className={classes.cardTitle} mt="lg">
-                  {service.title}
-                </Text>
-                <Text className={classes.cardDesc} mt="sm">
-                  {service.description}
-                </Text>
-              </Card>
+              <ServiceCard service={service} />
             </Reveal>
           ))}
         </SimpleGrid>

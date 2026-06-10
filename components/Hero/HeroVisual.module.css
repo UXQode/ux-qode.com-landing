@@ -34,6 +34,13 @@
 }
 
 /* ---------- Main panel ---------- */
+.tiltWrap {
+  position: relative;
+  z-index: 2;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
 .panel {
   position: relative;
   z-index: 2;
@@ -45,8 +52,28 @@
     0 30px 70px rgba(0, 0, 0, 0.45),
     inset 0 1px 0 rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(12px);
-  transform: rotateX(6deg) rotateY(-7deg);
+  overflow: hidden;
   animation: float-medium 8s ease-in-out infinite;
+}
+
+/* Cursor-tracking sheen that sweeps across the glass as it tilts */
+.sheen {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  border-radius: 20px;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    340px circle at var(--mx, 50%) var(--my, 0%),
+    rgba(255, 255, 255, 0.16),
+    transparent 60%
+  );
+  transition: opacity 0.3s ease;
+}
+
+.tiltWrap:hover .sheen {
+  opacity: 1;
 }
 
 .panelHead {

@@ -144,14 +144,36 @@
   &:hover::before {
     transform: translateX(100%);
   }
+
+  &:hover .spot {
+    opacity: 1;
+  }
+}
+
+.spot {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    240px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(58, 193, 206, 0.22),
+    transparent 55%
+  );
+  transition: opacity 0.35s ease;
 }
 
 .iconWrapper {
+  position: relative;
+  z-index: 1;
   background: linear-gradient(135deg, #3ac1ce 0%, #0070f3 100%) !important;
   border: none !important;
 }
 
 .cardTitle {
+  position: relative;
+  z-index: 1;
   font-size: 17px;
   font-weight: 700;
   color: var(--mantine-color-white);
@@ -159,6 +181,8 @@
 }
 
 .cardDesc {
+  position: relative;
+  z-index: 1;
   font-size: 14px;
   color: rgba(255, 255, 255, 0.55);
   line-height: 1.75;

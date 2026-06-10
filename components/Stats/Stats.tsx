@@ -1,6 +1,7 @@
 import { Badge, Container, Text, Title } from '@mantine/core';
 import { Reveal } from '@/components/Reveal/Reveal';
 import { useInView } from '@/hooks/useInView';
+import { useParallax } from '@/hooks/useParallax';
 import { Gauge } from './Gauge';
 import classes from './Stats.module.css';
 
@@ -19,9 +20,13 @@ const timeline = [
 
 export function Stats() {
   const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.3 });
+  const blobA = useParallax<HTMLDivElement>(0.1);
+  const blobB = useParallax<HTMLDivElement>(-0.08);
 
   return (
     <section className={classes.section} aria-label="aama.io by the numbers">
+      <div className={classes.blobA} aria-hidden="true" ref={blobA} />
+      <div className={classes.blobB} aria-hidden="true" ref={blobB} />
       <Container size="lg">
         <div className={classes.header}>
           <Reveal direction="scale">

@@ -9,8 +9,30 @@ import {
 } from '@tabler/icons-react';
 import { Badge, Button, Container, Group, SimpleGrid, Text, ThemeIcon, Title } from '@mantine/core';
 import { Reveal } from '@/components/Reveal/Reveal';
+import { useParallax } from '@/hooks/useParallax';
+import { useSpotlight } from '@/hooks/useSpotlight';
 import { FundFlow } from './FundFlow';
 import classes from './Product.module.css';
+
+type Highlight = (typeof highlights)[number];
+
+function HighlightCard({ h }: { h: Highlight }) {
+  const ref = useSpotlight<HTMLDivElement>();
+  return (
+    <div className={classes.card} ref={ref}>
+      <div className={classes.spot} aria-hidden="true" />
+      <ThemeIcon size={52} radius="xl" className={classes.iconWrapper}>
+        <h.icon size={24} stroke={1.8} />
+      </ThemeIcon>
+      <Text className={classes.cardTitle} mt="md">
+        {h.title}
+      </Text>
+      <Text className={classes.cardDesc} mt="xs">
+        {h.description}
+      </Text>
+    </div>
+  );
+}
 
 const highlights = [
   {
@@ -52,12 +74,14 @@ const highlights = [
 ];
 
 export function Product() {
+  const glowRef = useParallax<HTMLDivElement>(0.08);
+  const glowAltRef = useParallax<HTMLDivElement>(-0.07);
   return (
     <section className={classes.section} id="product" aria-label="aama.io product spotlight">
       <Container size="lg">
         <div className={classes.wrapper}>
-          <div className={classes.glow} aria-hidden="true" />
-          <div className={classes.glowAlt} aria-hidden="true" />
+          <div className={classes.glow} aria-hidden="true" ref={glowRef} />
+          <div className={classes.glowAlt} aria-hidden="true" ref={glowAltRef} />
 
           <div className={classes.header}>
             <Reveal direction="scale">
@@ -107,17 +131,7 @@ export function Product() {
           <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="xl" mt={56}>
             {highlights.map((h, i) => (
               <Reveal key={h.title} delay={i * 80}>
-                <div className={classes.card}>
-                  <ThemeIcon size={52} radius="xl" className={classes.iconWrapper}>
-                    <h.icon size={24} stroke={1.8} />
-                  </ThemeIcon>
-                  <Text className={classes.cardTitle} mt="md">
-                    {h.title}
-                  </Text>
-                  <Text className={classes.cardDesc} mt="xs">
-                    {h.description}
-                  </Text>
-                </div>
+                <HighlightCard h={h} />
               </Reveal>
             ))}
           </SimpleGrid>

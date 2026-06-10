@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { IconBrandFacebook, IconBrandInstagram, IconBrandLinkedin } from '@tabler/icons-react';
 import { Anchor, Container, Group, SimpleGrid, Stack, Text } from '@mantine/core';
+import { Logo } from '../Logo/Logo';
 import classes from './Footer.module.css';
 
 const footerLinks = [
@@ -48,9 +49,14 @@ export function Footer() {
       <Container size="lg">
         <div className={classes.top}>
           <div className={classes.brand}>
-            <Anchor component={Link} href="/" className={classes.logo} underline="never">
-              <span className={classes.logoUx}>UX</span>
-              <span className={classes.logoQode}>Qode</span>
+            <Anchor
+              component={Link}
+              href="/"
+              className={classes.logo}
+              underline="never"
+              aria-label="UXQode home"
+            >
+              <Logo height={50} />
             </Anchor>
             <Text className={classes.tagline} mt="sm">
               AI-powered digital solutions engineered for a global future — and the makers of

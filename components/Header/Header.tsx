@@ -1,9 +1,10 @@
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import { Anchor, Burger, Button, Container, Drawer, Stack } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { useEffect, useState } from 'react';
-import classes from './Header.module.css';
 import { ActionToggle } from '../ActionToggle/ActionToggle';
-import Link from 'next/link';
+import { Logo } from '../Logo/Logo';
+import classes from './Header.module.css';
 
 const navLinks = [
   { label: 'Products', href: '/#product' },
@@ -26,9 +27,14 @@ export function Header() {
       <header className={`${classes.header} ${scrolled ? classes.scrolled : ''}`}>
         <Container size="lg">
           <div className={classes.inner}>
-            <Anchor component={Link} href="/" className={classes.logo} underline="never">
-              <span className={classes.logoUx}>UX</span>
-              <span className={classes.logoQode}>Qode</span>
+            <Anchor
+              component={Link}
+              href="/"
+              className={classes.logo}
+              underline="never"
+              aria-label="UXQode home"
+            >
+              <Logo height={50} />
             </Anchor>
 
             <nav aria-label="Main navigation" className={classes.nav}>
@@ -44,27 +50,11 @@ export function Header() {
                 </Anchor>
               ))}
               <ActionToggle />
-              <Button
-                component="a"
-                href="https://aama.io"
-                target="_blank"
-                rel="noopener noreferrer"
-                size="sm"
-                radius="xl"
-                className={classes.cta}
-              >
-                Try aama.io
-              </Button>
             </nav>
 
             <div className={classes.mobileControls}>
               <ActionToggle />
-              <Burger
-                opened={opened}
-                onClick={toggle}
-                size="sm"
-                aria-label="Toggle navigation"
-              />
+              <Burger opened={opened} onClick={toggle} size="sm" aria-label="Toggle navigation" />
             </div>
           </div>
         </Container>
@@ -75,12 +65,7 @@ export function Header() {
         onClose={close}
         size="xs"
         padding="xl"
-        title={
-          <span className={classes.drawerLogo}>
-            <span className={classes.logoUx}>UX</span>
-            <span className={classes.logoQode}>Qode</span>
-          </span>
-        }
+        title={<Logo height={28} />}
         hiddenFrom="sm"
         zIndex={200}
       >

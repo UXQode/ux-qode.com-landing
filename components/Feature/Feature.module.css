@@ -66,6 +66,24 @@
   &:hover .icon {
     transform: translateY(-3px) rotate(-4deg);
   }
+
+  &:hover .sheen {
+    opacity: 1;
+  }
+}
+
+.sheen {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  opacity: 0;
+  background: radial-gradient(
+    260px circle at var(--mx, 50%) var(--my, 50%),
+    rgba(58, 193, 206, 0.16),
+    transparent 60%
+  );
+  transition: opacity 0.35s ease;
 }
 
 .iconHalo {
@@ -85,12 +103,14 @@
 .icon {
   flex-shrink: 0;
   position: relative;
-  z-index: 1;
+  z-index: 3;
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   box-shadow: 0 8px 24px rgba(58, 193, 206, 0.25);
 }
 
 .cardTitle {
+  position: relative;
+  z-index: 3;
   font-size: 18px;
   font-weight: 700;
   color: light-dark(var(--mantine-color-dark-9), var(--mantine-color-white));
@@ -99,6 +119,8 @@
 }
 
 .cardDesc {
+  position: relative;
+  z-index: 3;
   font-size: 14px;
   color: light-dark(var(--mantine-color-gray-7), var(--mantine-color-gray-4));
   line-height: 1.75;
