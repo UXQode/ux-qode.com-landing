@@ -1,4 +1,4 @@
-import { IconAt, IconMapPin, IconClock } from '@tabler/icons-react';
+import { IconAt, IconClock, IconMapPin } from '@tabler/icons-react';
 import { Stack, Text, ThemeIcon } from '@mantine/core';
 import classes from './ContactIcons.module.css';
 
@@ -6,27 +6,38 @@ interface ContactIconProps {
   icon: typeof IconAt;
   title: string;
   description: string;
+  href?: string;
 }
 
-function ContactIcon({ icon: Icon, title, description }: ContactIconProps) {
-  return (
-    <div className={classes.item}>
-      <ThemeIcon size={40} radius="xl" className={classes.iconBg}>
+function ContactIcon({ icon: Icon, title, description, href }: ContactIconProps) {
+  const body = (
+    <>
+      <ThemeIcon size={42} radius={0} className={classes.iconBg}>
         <Icon size={18} stroke={1.8} />
       </ThemeIcon>
       <div>
         <Text className={classes.itemTitle}>{title}</Text>
         <Text className={classes.itemDescription}>{description}</Text>
       </div>
-    </div>
+    </>
   );
+
+  if (href) {
+    return (
+      <a className={`${classes.item} ${classes.linked}`} href={href}>
+        {body}
+      </a>
+    );
+  }
+  return <div className={classes.item}>{body}</div>;
 }
 
-const contactData = [
+const contactData: ContactIconProps[] = [
   {
     icon: IconAt,
     title: 'Email us',
     description: 'dev@ux-qode.com',
+    href: 'mailto:dev@ux-qode.com',
   },
   {
     icon: IconMapPin,

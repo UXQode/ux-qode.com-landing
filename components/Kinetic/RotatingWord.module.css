@@ -1,0 +1,48 @@
+.rotator {
+  position: relative;
+  display: inline-grid;
+  vertical-align: bottom;
+  overflow: hidden;
+  /* clip mask so the entering/leaving word is cut at the line box */
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+}
+
+.sizer {
+  visibility: hidden;
+  white-space: nowrap;
+  grid-area: 1 / 1;
+}
+
+.word {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+  background: linear-gradient(105deg, #4dd9e4 0%, #0070f3 55%, #7c3aed 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+}
+
+.in {
+  animation: word-swap 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes word-swap {
+  0% {
+    transform: translateY(105%) rotate(2deg);
+    opacity: 0;
+    filter: blur(6px);
+  }
+  100% {
+    transform: translateY(0) rotate(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .in {
+    animation: none;
+  }
+}

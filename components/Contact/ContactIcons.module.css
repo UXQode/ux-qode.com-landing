@@ -2,22 +2,41 @@
   display: flex;
   align-items: flex-start;
   gap: var(--mantine-spacing-md);
+  text-decoration: none;
+}
+
+.linked {
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateX(4px);
+  }
+
+  &:hover .iconBg {
+    background: rgba(58, 193, 206, 0.28) !important;
+    border-color: rgba(58, 193, 206, 0.5) !important;
+  }
+
+  &:hover .itemDescription {
+    color: #4dd9e4;
+  }
 }
 
 .iconBg {
-  background: rgba(58, 193, 206, 0.18) !important;
-  border: 1px solid rgba(58, 193, 206, 0.25) !important;
-  color: #3ac1ce !important;
+  background: rgba(58, 193, 206, 0.14) !important;
+  border: 1px solid rgba(58, 193, 206, 0.28) !important;
+  color: #4dd9e4 !important;
   flex-shrink: 0;
   margin-top: 2px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .itemTitle {
-  font-size: 12px;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.45);
+  font-size: 11px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.4);
   text-transform: uppercase;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   margin-bottom: 4px;
 }
 
@@ -25,4 +44,5 @@
   font-size: 14px;
   color: rgba(255, 255, 255, 0.85);
   line-height: 1.5;
+  transition: color 0.2s ease;
 }

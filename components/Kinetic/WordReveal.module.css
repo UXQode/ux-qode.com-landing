@@ -1,0 +1,50 @@
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.wrap {
+  display: block;
+}
+
+.line {
+  display: block;
+}
+
+.word {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  /* room for descenders so the clip doesn't crop g/y/p */
+  padding-bottom: 0.08em;
+  margin-right: 0.22em;
+}
+
+.inner {
+  display: inline-block;
+  transform: translateY(110%);
+  opacity: 0;
+  animation: word-rise 0.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes word-rise {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .inner {
+    transform: none;
+    opacity: 1;
+    animation: none;
+  }
+}

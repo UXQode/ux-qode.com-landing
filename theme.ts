@@ -20,8 +20,8 @@ export const theme = createTheme({
   fontFamily:
     'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
   headings: {
-    fontFamily:
-      'Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
-    fontWeight: '800',
+    // Space Grotesk gives the headlines an editorial, technical character.
+    fontFamily: '"Space Grotesk", Inter, -apple-system, BlinkMacSystemFont, sans-serif',
+    fontWeight: '700',
   },
 });

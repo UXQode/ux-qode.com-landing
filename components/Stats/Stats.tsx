@@ -1,5 +1,6 @@
-import { Badge, Container, Text, Title } from '@mantine/core';
+import { Container, Text } from '@mantine/core';
 import { Reveal } from '@/components/Reveal/Reveal';
+import { SectionHeading } from '@/components/SectionHeading/SectionHeading';
 import { useInView } from '@/hooks/useInView';
 import { useParallax } from '@/hooks/useParallax';
 import { Gauge } from './Gauge';
@@ -28,24 +29,16 @@ export function Stats() {
       <div className={classes.blobA} aria-hidden="true" ref={blobA} />
       <div className={classes.blobB} aria-hidden="true" ref={blobB} />
       <Container size="lg">
-        <div className={classes.header}>
-          <Reveal direction="scale">
-            <Badge variant="light" color="brand" size="md" radius="xl">
-              By the Numbers
-            </Badge>
-          </Reveal>
-          <Reveal delay={80}>
-            <Title component="h2" className={classes.title} mt="sm">
-              Compliance, scale, and speed — <span className={classes.accent}>measured</span>
-            </Title>
-          </Reveal>
-          <Reveal delay={140}>
-            <Text component="p" className={classes.description} mt="md">
-              aama.io is built to enterprise standards so boutique fund managers can operate like
-              institutions — without the institutional overhead.
-            </Text>
-          </Reveal>
-        </div>
+        <SectionHeading
+          index="03"
+          label="By the Numbers"
+          title={
+            <>
+              Compliance, scale &amp; speed — <span className={classes.accent}>measured</span>
+            </>
+          }
+          description="aama.io is built to enterprise standards so boutique fund managers can operate like institutions — without the institutional overhead."
+        />
 
         <div className={classes.gaugeGrid}>
           {gauges.map((g, i) => (

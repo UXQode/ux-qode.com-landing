@@ -7,8 +7,9 @@ import {
   IconShieldCheck,
   IconUserCheck,
 } from '@tabler/icons-react';
-import { Badge, Button, Container, Group, SimpleGrid, Text, ThemeIcon, Title } from '@mantine/core';
+import { Button, Container, Group, SimpleGrid, Text, ThemeIcon } from '@mantine/core';
 import { Reveal } from '@/components/Reveal/Reveal';
+import { SectionHeading } from '@/components/SectionHeading/SectionHeading';
 import { useParallax } from '@/hooks/useParallax';
 import { useSpotlight } from '@/hooks/useSpotlight';
 import { FundFlow } from './FundFlow';
@@ -83,45 +84,34 @@ export function Product() {
           <div className={classes.glow} aria-hidden="true" ref={glowRef} />
           <div className={classes.glowAlt} aria-hidden="true" ref={glowAltRef} />
 
-          <div className={classes.header}>
-            <Reveal direction="scale">
-              <Badge variant="filled" color="brand" size="md" radius="xl" className={classes.badge}>
-                Crown Product · Fund Management
-              </Badge>
-            </Reveal>
-            <Reveal delay={80}>
-              <Title component="h2" className={classes.title} mt="sm">
-                Meet <span className={classes.productName}>aama.io</span>
-                <br />
-                Run your entire fund on one platform
-              </Title>
-            </Reveal>
-            <Reveal delay={140}>
-              <Text component="p" className={classes.description} mt="md">
-                aama.io is UXQode&apos;s flagship platform — end-to-end fund management software
-                that replaces the spreadsheets and disconnected tools fund managers rely on today.
-                Built for boutique private equity, venture capital, hedge funds, family offices, and
-                SPVs, it brings administration, accounting, compliance, and investor reporting into
-                a single integrated system.
-              </Text>
-            </Reveal>
-            <Reveal delay={200}>
-              <Group justify="center" mt="xl">
-                <Button
-                  component="a"
-                  href="https://aama.io"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  size="md"
-                  radius="xl"
-                  className={classes.cta}
-                  rightSection={<IconArrowRight size={16} />}
-                >
-                  Launch aama.io
-                </Button>
-              </Group>
-            </Reveal>
-          </div>
+          <SectionHeading
+            index="02"
+            label="Crown Product · Fund Management"
+            onDark
+            title={
+              <>
+                Meet <span className={classes.productName}>aama.io</span> — run your entire fund on
+                one platform
+              </>
+            }
+            description="aama.io is UXQode's flagship platform — end-to-end fund management software that replaces the spreadsheets and disconnected tools fund managers rely on today. Built for boutique private equity, venture capital, hedge funds, family offices, and SPVs, it brings administration, accounting, compliance, and investor reporting into a single integrated system."
+          />
+          <Reveal delay={200}>
+            <Group justify="center" mt="xl">
+              <Button
+                component="a"
+                href="https://aama.io"
+                target="_blank"
+                rel="noopener noreferrer"
+                size="md"
+                radius="0"
+                className={classes.cta}
+                rightSection={<IconArrowRight size={16} />}
+              >
+                Launch aama.io
+              </Button>
+            </Group>
+          </Reveal>
 
           {/* Animated fund-lifecycle infographic */}
           <Reveal delay={120} className={classes.flowWrap}>

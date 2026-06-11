@@ -6,8 +6,9 @@ import {
   IconServerBolt,
   IconUsersGroup,
 } from '@tabler/icons-react';
-import { Badge, Card, Container, SimpleGrid, Text, ThemeIcon, Title } from '@mantine/core';
+import { Card, Container, SimpleGrid, Text, ThemeIcon } from '@mantine/core';
 import { Reveal } from '@/components/Reveal/Reveal';
+import { SectionHeading } from '@/components/SectionHeading/SectionHeading';
 import { useTilt } from '@/hooks/useTilt';
 import classes from './Feature.module.css';
 
@@ -87,27 +88,17 @@ export function Feature() {
   return (
     <section className={classes.section} id="features" aria-label="Services">
       <Container size="lg">
-        <div className={classes.header}>
-          <Reveal direction="scale">
-            <Badge variant="light" color="brand" size="md" radius="xl">
-              Our Services
-            </Badge>
-          </Reveal>
-          <Reveal delay={80}>
-            <Title component="h2" className={classes.title} mt="sm">
-              Enterprise-Grade Digital Solutions that{' '}
-              <span className={classes.titleAccent}>Power Innovation</span>
-            </Title>
-          </Reveal>
-          <Reveal delay={140}>
-            <Text component="p" className={classes.description} mt="md">
-              UXQode partners with ambitious businesses to build intelligent, scalable, and secure
-              platforms — from enterprise software and AI agents to the fintech engineering behind
-              aama.io. A global perspective with localized service, delivered from Singapore and
-              Nepal.
-            </Text>
-          </Reveal>
-        </div>
+        <SectionHeading
+          index="04"
+          label="Services & Capabilities"
+          title={
+            <>
+              Enterprise-grade solutions that{' '}
+              <span className={classes.titleAccent}>power innovation</span>
+            </>
+          }
+          description="UXQode partners with ambitious businesses to build intelligent, scalable, and secure platforms — from enterprise software and AI agents to the fintech engineering behind aama.io. A global perspective with localized service, delivered from Singapore and Nepal."
+        />
 
         <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="xl" mt={60}>
           {services.map((service, i) => (

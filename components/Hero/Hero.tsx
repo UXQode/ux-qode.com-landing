@@ -1,7 +1,8 @@
 import Link from 'next/link';
-import { IconArrowRight, IconMapPin } from '@tabler/icons-react';
-import { Badge, Button, Container, Group, Text, Title } from '@mantine/core';
-import { Marquee } from '@/components/Marquee/Marquee';
+import { IconArrowRight } from '@tabler/icons-react';
+import { Button, Container, Text } from '@mantine/core';
+import { RotatingWord } from '@/components/Kinetic/RotatingWord';
+import { WordReveal } from '@/components/Kinetic/WordReveal';
 import { useCountUp } from '@/hooks/useCountUp';
 import { useInView } from '@/hooks/useInView';
 import { useMagnetic } from '@/hooks/useMagnetic';
@@ -12,18 +13,20 @@ import classes from './Hero.module.css';
 const stats = [
   { value: 200, suffix: '+', decimals: 0, label: 'Clients Served' },
   { value: 30, suffix: '+', decimals: 0, label: 'Apps Delivered' },
-  { value: 20, suffix: '+', decimals: 0, label: 'Engineers & Designers' },
-  { value: 2, suffix: '', decimals: 0, label: 'Global Hubs · SG & NP' },
+  { value: 20, suffix: '+', decimals: 0, label: 'Engineers' },
+  { value: 2, suffix: '', decimals: 0, label: 'Global Hubs' },
 ];
 
-const fundTypes = [
-  'Private Equity',
-  'Venture Capital',
-  'Hedge Funds',
-  'Family Offices',
-  'Mutual Funds',
-  'Single-Asset SPVs',
-  'Fund Administrators',
+const rotating = ['SOFTWARE', 'PLATFORMS', 'AI AGENTS', 'aama.io'];
+
+const marqueeWords = [
+  'FUND ADMINISTRATION',
+  'NAV & ACCOUNTING',
+  'INVESTOR ONBOARDING',
+  'CAPITAL CALLS',
+  'COMPLIANCE',
+  'AI AGENTS',
+  'ENTERPRISE SOFTWARE',
 ];
 
 function StatItem({
@@ -41,17 +44,11 @@ function StatItem({
   const count = useCountUp(value, inView, 1600, decimals);
   return (
     <div className={classes.statItem} role="listitem" ref={ref}>
-      <Text
-        component="span"
-        className={classes.statValue}
-        aria-label={`${value}${suffix} ${label}`}
-      >
+      <span className={classes.statValue} aria-label={`${value}${suffix} ${label}`}>
         {count}
         {suffix}
-      </Text>
-      <Text component="span" className={classes.statLabel}>
-        {label}
-      </Text>
+      </span>
+      <span className={classes.statLabel}>{label}</span>
     </div>
   );
 }
@@ -74,32 +71,28 @@ export function Hero() {
       <div className={classes.orb3} aria-hidden="true" style={{ ['--depth' as string]: 3.4 }} />
 
       <Container size="lg" className={classes.container}>
-        <div className={classes.layout}>
-          <div className={classes.inner}>
-            <Badge
-              variant="outline"
-              color="brand"
-              size="md"
-              radius="xl"
-              className={classes.locationBadge}
-              leftSection={<IconMapPin size={12} />}
-            >
-              Headquartered in Singapore · Serving Globally
-            </Badge>
+        <div className={classes.overline}>
+          <span className={classes.index}>01</span>
+          <span className={classes.overlineLine} />
+          <span className={classes.overlineLabel}>UXQode · AI-Powered Engineering · Singapore</span>
+        </div>
 
-            <Title component="h1" className={classes.title}>
-              Engineering the Future of <span className={classes.gradient}>AI&#8209;Powered</span>
-              <br />
-              Digital Experiences
-            </Title>
+        <h1 className={classes.title}>
+          <WordReveal lines={['We build', 'intelligent']} className={classes.titleStatic} />
+          <span className={classes.rotateLine}>
+            <RotatingWord words={rotating} />
+          </span>
+        </h1>
 
+        <div className={classes.row}>
+          <div className={classes.left}>
             <Text component="p" className={classes.description}>
-              UXQode builds intelligent digital solutions that transform how global enterprises
-              operate, compete, and grow — and the engineering behind <strong>aama.io</strong>, our
-              fund-management platform built for modern fund managers.
+              UXQode engineers the digital products behind modern business — and{' '}
+              <strong>aama.io</strong>, the platform that runs an entire fund in one place. From
+              enterprise software to AI agents, built in Singapore, shipped worldwide.
             </Text>
 
-            <Group className={classes.controls}>
+            <div className={classes.controls}>
               <Button
                 ref={magneticRef}
                 component="a"
@@ -107,7 +100,7 @@ export function Hero() {
                 target="_blank"
                 rel="noopener noreferrer"
                 size="lg"
-                radius="xl"
+                radius="0"
                 className={classes.primaryBtn}
                 rightSection={<IconArrowRight size={18} />}
               >
@@ -117,13 +110,13 @@ export function Hero() {
                 component={Link}
                 href="/#contact-us"
                 size="lg"
-                radius="xl"
+                radius="0"
                 variant="outline"
                 className={classes.secondaryBtn}
               >
                 Talk to Us
               </Button>
-            </Group>
+            </div>
 
             <div className={classes.statsRow} role="list" aria-label="Company statistics">
               {stats.map((stat) => (
@@ -138,12 +131,21 @@ export function Hero() {
         </div>
       </Container>
 
-      <Container size="lg" className={classes.container}>
-        <div className={classes.marqueeWrap}>
-          <span className={classes.marqueeLabel}>Built for</span>
-          <Marquee items={fundTypes} duration={32} />
+      {/* Giant outline-text marquee — editorial signature */}
+      <div className={classes.bigMarquee} aria-hidden="true">
+        <div className={classes.bigTrack}>
+          {[0, 1].map((dup) => (
+            <span key={dup} className={classes.bigGroup}>
+              {marqueeWords.map((w) => (
+                <span key={w} className={classes.bigWord}>
+                  {w}
+                  <span className={classes.star}>✦</span>
+                </span>
+              ))}
+            </span>
+          ))}
         </div>
-      </Container>
+      </div>
     </section>
   );
 }
