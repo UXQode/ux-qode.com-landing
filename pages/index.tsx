@@ -99,9 +99,9 @@ export default function HomePage() {
       <Header />
       <main>
         <Hero />
-        <Product />
-        <Stats />
         <Feature />
+        <Stats />
+        <Product />
         <Contact />
       </main>
       <Footer />

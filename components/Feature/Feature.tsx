@@ -1,4 +1,5 @@
 import {
+  IconArrowUpRight,
   IconBuildingSkyscraper,
   IconDeviceMobileCode,
   IconPlugConnected,
@@ -6,36 +7,42 @@ import {
   IconServerBolt,
   IconUsersGroup,
 } from '@tabler/icons-react';
-import { Card, Container, SimpleGrid, Text, ThemeIcon } from '@mantine/core';
-import { Reveal } from '@/components/Reveal/Reveal';
+import { Container, SimpleGrid, Text, ThemeIcon } from '@mantine/core';
 import { SectionHeading } from '@/components/SectionHeading/SectionHeading';
-import { useTilt } from '@/hooks/useTilt';
+import { useSpotlight } from '@/hooks/useSpotlight';
 import classes from './Feature.module.css';
 
 type Service = (typeof services)[number];
 
-function ServiceCard({ service }: { service: Service }) {
-  const tiltRef = useTilt<HTMLDivElement>({ max: 7, scale: 1.03, lift: 14 });
+function ServiceCard({ service, index }: { service: Service; index: number }) {
+  const ref = useSpotlight<HTMLElement>();
   return (
-    <Card ref={tiltRef} className={classes.card} radius="xl" padding="xl" component="article">
+    <article className={classes.card} ref={ref}>
+      <div className={classes.accentBar} aria-hidden="true" />
       <div className={classes.sheen} aria-hidden="true" />
-      <div className={classes.iconHalo} aria-hidden="true" />
-      <ThemeIcon
-        size={56}
-        radius="xl"
-        variant="gradient"
-        gradient={service.gradient}
-        className={classes.icon}
-      >
-        <service.icon size={26} stroke={1.8} />
-      </ThemeIcon>
-      <Text component="h3" className={classes.cardTitle} mt="lg">
+
+      <div className={classes.cardTop}>
+        <ThemeIcon
+          size={52}
+          radius={0}
+          variant="gradient"
+          gradient={service.gradient}
+          className={classes.icon}
+        >
+          <service.icon size={26} stroke={1.7} />
+        </ThemeIcon>
+        <span className={classes.cardIndex}>{String(index + 1).padStart(2, '0')}</span>
+      </div>
+
+      <Text component="h3" className={classes.cardTitle}>
         {service.title}
       </Text>
-      <Text className={classes.cardDesc} mt="sm">
-        {service.description}
-      </Text>
-    </Card>
+      <Text className={classes.cardDesc}>{service.description}</Text>
+
+      <span className={classes.cardArrow} aria-hidden="true">
+        <IconArrowUpRight size={18} stroke={2} />
+      </span>
+    </article>
   );
 }
 
@@ -89,7 +96,7 @@ export function Feature() {
     <section className={classes.section} id="features" aria-label="Services">
       <Container size="lg">
         <SectionHeading
-          index="04"
+          index="02"
           label="Services & Capabilities"
           title={
             <>
@@ -100,11 +107,9 @@ export function Feature() {
           description="UXQode partners with ambitious businesses to build intelligent, scalable, and secure platforms — from enterprise software and AI agents to the fintech engineering behind aama.io. A global perspective with localized service, delivered from Singapore and Nepal."
         />
 
-        <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="xl" mt={60}>
+        <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing={1} verticalSpacing={1} className={classes.grid} mt={56}>
           {services.map((service, i) => (
-            <Reveal key={service.title} delay={(i % 3) * 90}>
-              <ServiceCard service={service} />
-            </Reveal>
+            <ServiceCard key={service.title} service={service} index={i} />
           ))}
         </SimpleGrid>
       </Container>

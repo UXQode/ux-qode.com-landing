@@ -7,8 +7,8 @@ import { Logo } from '../Logo/Logo';
 import classes from './Header.module.css';
 
 const navLinks = [
-  { label: 'Products', href: '/#product' },
   { label: 'Services', href: '/#features' },
+  { label: 'Products', href: '/#product' },
   { label: 'Contact', href: '/#contact-us' },
 ];
 

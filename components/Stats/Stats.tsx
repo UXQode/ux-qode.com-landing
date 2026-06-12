@@ -41,10 +41,8 @@ export function Stats() {
         />
 
         <div className={classes.gaugeGrid}>
-          {gauges.map((g, i) => (
-            <Reveal key={g.caption} delay={i * 100} direction="up">
-              <Gauge {...g} />
-            </Reveal>
+          {gauges.map((g) => (
+            <Gauge key={g.caption} {...g} />
           ))}
         </div>
 

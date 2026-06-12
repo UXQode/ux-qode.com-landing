@@ -66,26 +66,57 @@
   margin-right: auto;
 }
 
-/* ---------- Gauges ---------- */
+/* ---------- Gauges: aligned shared-border grid ---------- */
 .gaugeGrid {
+  --line: light-dark(var(--mantine-color-gray-3), rgba(255, 255, 255, 0.1));
   position: relative;
   z-index: 1;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: var(--mantine-spacing-xl);
+  gap: 1px;
   margin-top: calc(var(--mantine-spacing-xl) * 2.5);
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
 
   @media (max-width: $mantine-breakpoint-sm) {
     grid-template-columns: repeat(2, 1fr);
-    gap: calc(var(--mantine-spacing-xl) * 1.5) var(--mantine-spacing-md);
   }
 }
 
 .gauge {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   text-align: center;
+  padding: clamp(28px, 3vw, 40px) clamp(12px, 1.6vw, 20px);
+  background: light-dark(var(--mantine-color-white), #0e141d);
+  transition: background-color 0.3s ease;
+}
+
+/* hairline accent that grows in on hover, matching section 04 */
+.gauge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #3ac1ce, #0070f3);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.gauge:hover {
+  background: light-dark(var(--mantine-color-gray-0), #121a25);
+}
+
+.gauge:hover::before {
+  transform: scaleX(1);
 }
 
 .gaugeRing {
@@ -151,9 +182,9 @@
   margin-left: auto;
   margin-right: auto;
   padding: calc(var(--mantine-spacing-xl) * 1.5);
-  border-radius: 20px;
-  background: light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-7));
-  border: 1px solid light-dark(var(--mantine-color-gray-2), var(--mantine-color-dark-5));
+  border-radius: 4px;
+  background: light-dark(var(--mantine-color-gray-0), #0e141d);
+  border: 1px solid light-dark(var(--mantine-color-gray-3), rgba(255, 255, 255, 0.1));
 }
 
 .compareHead {
@@ -201,7 +232,7 @@
 .compareBarTrack {
   flex: 1;
   height: 36px;
-  border-radius: 10px;
+  border-radius: 3px;
   background: light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-6));
   overflow: hidden;
   width: 100%;
@@ -209,7 +240,7 @@
 
 .compareBar {
   height: 100%;
-  border-radius: 10px;
+  border-radius: 3px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -221,6 +252,7 @@
 .brand {
   background: linear-gradient(90deg, #3ac1ce, #0070f3);
   box-shadow: 0 4px 16px rgba(58, 193, 206, 0.4);
+  border-radius: 3px;
 }
 
 .muted {

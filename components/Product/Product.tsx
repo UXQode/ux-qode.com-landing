@@ -17,17 +17,19 @@ import classes from './Product.module.css';
 
 type Highlight = (typeof highlights)[number];
 
-function HighlightCard({ h }: { h: Highlight }) {
+function HighlightCard({ h, index }: { h: Highlight; index: number }) {
   const ref = useSpotlight<HTMLDivElement>();
   return (
     <div className={classes.card} ref={ref}>
+      <div className={classes.accentBar} aria-hidden="true" />
       <div className={classes.spot} aria-hidden="true" />
-      <ThemeIcon size={52} radius="xl" className={classes.iconWrapper}>
-        <h.icon size={24} stroke={1.8} />
-      </ThemeIcon>
-      <Text className={classes.cardTitle} mt="md">
-        {h.title}
-      </Text>
+      <div className={classes.cardTop}>
+        <ThemeIcon size={50} radius={0} className={classes.iconWrapper}>
+          <h.icon size={24} stroke={1.8} />
+        </ThemeIcon>
+        <span className={classes.cardIndex}>{String(index + 1).padStart(2, '0')}</span>
+      </div>
+      <Text className={classes.cardTitle}>{h.title}</Text>
       <Text className={classes.cardDesc} mt="xs">
         {h.description}
       </Text>
@@ -85,7 +87,7 @@ export function Product() {
           <div className={classes.glowAlt} aria-hidden="true" ref={glowAltRef} />
 
           <SectionHeading
-            index="02"
+            index="04"
             label="Crown Product · Fund Management"
             onDark
             title={
@@ -118,11 +120,15 @@ export function Product() {
             <FundFlow />
           </Reveal>
 
-          <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing="xl" mt={56}>
+          <SimpleGrid
+            cols={{ base: 1, sm: 2, md: 3 }}
+            spacing={1}
+            verticalSpacing={1}
+            className={classes.highlightGrid}
+            mt={56}
+          >
             {highlights.map((h, i) => (
-              <Reveal key={h.title} delay={i * 80}>
-                <HighlightCard h={h} />
-              </Reveal>
+              <HighlightCard key={h.title} h={h} index={i} />
             ))}
           </SimpleGrid>
         </div>
