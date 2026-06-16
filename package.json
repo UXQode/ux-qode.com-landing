@@ -25,6 +25,7 @@
     "storybook:build": "storybook build"
   },
   "dependencies": {
+    "@hubspot/api-client": "^13.5.0",
     "@mantine/core": "7.15.0",
     "@mantine/hooks": "7.15.0",
     "@next/bundle-analyzer": "^14.2.4",

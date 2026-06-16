@@ -3,14 +3,24 @@ import '../styles/globals.css';
 
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import Script from 'next/script';
 import { ColorSchemeScript, MantineProvider } from '@mantine/core';
 import { AIBackground } from '@/components/AIBackground/AIBackground';
 import { ScrollProgress } from '@/components/ScrollProgress/ScrollProgress';
 import { theme } from '../theme';
 
+const HUBSPOT_PORTAL_ID = process.env.NEXT_PUBLIC_HUBSPOT_PORTAL_ID;
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <>
+      {HUBSPOT_PORTAL_ID && (
+        <Script
+          id="hs-script-loader"
+          strategy="afterInteractive"
+          src={`https://js.hs-scripts.com/${HUBSPOT_PORTAL_ID}.js`}
+        />
+      )}
       <Head>
         <meta
           name="viewport"

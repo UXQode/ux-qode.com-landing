@@ -14,7 +14,6 @@ const stats = [
   { value: 200, suffix: '+', decimals: 0, label: 'Clients Served' },
   { value: 30, suffix: '+', decimals: 0, label: 'Apps Delivered' },
   { value: 20, suffix: '+', decimals: 0, label: 'Engineers' },
-  { value: 2, suffix: '', decimals: 0, label: 'Global Hubs' },
 ];
 
 const rotating = ['SOFTWARE', 'PLATFORMS', 'AI AGENTS', 'aama.io'];

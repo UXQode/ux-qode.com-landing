@@ -29,10 +29,18 @@ export function Contact() {
     setError('');
     setStatus('loading');
     try {
-      const response = await fetch('/api/send-email', {
+      // HubSpot tracking cookie (present when the HubSpot tracking script is loaded)
+      // — lets HubSpot attribute the lead to its browsing session.
+      const hutk =
+        typeof document !== 'undefined'
+          ? document.cookie.match(/(?:^|;\s*)hubspotutk=([^;]+)/)?.[1]
+          : undefined;
+      const pageUri = typeof window !== 'undefined' ? window.location.href : undefined;
+
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, name, message }),
+        body: JSON.stringify({ email, name, message, hutk, pageUri }),
       });
       if (response.ok) {
         setStatus('success');
@@ -40,8 +48,9 @@ export function Contact() {
         setName('');
         setMessage('');
       } else {
+        const data = await response.json().catch(() => null);
         setStatus('error');
-        setError('Something went wrong sending your message. Please try again.');
+        setError(data?.error || 'Something went wrong sending your message. Please try again.');
       }
     } catch {
       setStatus('error');

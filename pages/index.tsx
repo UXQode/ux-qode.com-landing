@@ -5,7 +5,9 @@ import { Footer } from '@/components/Footer/Footer';
 import { Header } from '@/components/Header/Header';
 import { Hero } from '@/components/Hero/Hero';
 import { Product } from '@/components/Product/Product';
+import { FintechBand } from '@/components/service/FintechBand';
 import { Stats } from '@/components/Stats/Stats';
+import serviceClasses from '@/components/service/service.module.css';
 
 const structuredData = {
   '@context': 'https://schema.org',
@@ -17,7 +19,7 @@ const structuredData = {
       url: 'https://ux-qode.com',
       logo: 'https://ux-qode.com/logo.png',
       description:
-        'UXQode is a Singapore-headquartered technology company delivering enterprise-grade digital solutions — enterprise software development, AI agent solutions, mobile applications, and IT consulting — and the maker of aama.io, end-to-end fund management software. Operating from Singapore and Nepal.',
+        'UXQode is a Singapore-headquartered technology company delivering enterprise-grade digital solutions — enterprise software development, AI agent solutions, mobile applications, and IT consulting — and the maker of aama.io, end-to-end fund management software. Headquartered in Singapore.',
       address: {
         '@type': 'PostalAddress',
         streetAddress: 'Robinson Road, #14-04',
@@ -102,6 +104,25 @@ export default function HomePage() {
         <Feature />
         <Stats />
         <Product />
+        <FintechBand
+          withSection
+          title={
+            <>
+              The team behind aama.io can <span className={serviceClasses.heroAccent}>build yours</span>
+            </>
+          }
+          body={
+            <>
+              aama.io is what our engineers ship every day. Bring that same fund-tech depth to your
+              own roadmap — bring in a <strong>fractional CTO</strong>, or get to know the{' '}
+              <strong>team</strong> that builds it.
+            </>
+          }
+          ctas={[
+            { label: 'Fractional CTO', href: '/fractional-cto', primary: true },
+            { label: 'Meet the team', href: '/teams' },
+          ]}
+        />
         <Contact />
       </main>
       <Footer />

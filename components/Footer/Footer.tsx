@@ -24,7 +24,7 @@ const footerLinks = [
     links: [
       { label: 'Enterprise Software', href: '/#features' },
       { label: 'AI Agent Solutions', href: '/#features' },
-      { label: 'Mobile Apps', href: '/#features' },
+      { label: 'Fractional CTO', href: '/fractional-cto' },
       { label: 'IT Consulting', href: '/#contact-us' },
     ],
   },
@@ -32,6 +32,7 @@ const footerLinks = [
     heading: 'Company',
     links: [
       { label: 'About UXQode', href: '/#about' },
+      { label: 'Our Team', href: '/teams' },
       { label: 'Contact Us', href: '/#contact-us' },
       { label: 'Sister Company', href: 'https://uxqode.co', external: true },
     ],

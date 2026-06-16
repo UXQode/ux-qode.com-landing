@@ -8,6 +8,8 @@ import classes from './Header.module.css';
 
 const navLinks = [
   { label: 'Services', href: '/#features' },
+  { label: 'Fractional CTO', href: '/fractional-cto' },
+  { label: 'Team', href: '/teams' },
   { label: 'Products', href: '/#product' },
   { label: 'Contact', href: '/#contact-us' },
 ];

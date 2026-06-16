@@ -104,7 +104,7 @@ export function Feature() {
               <span className={classes.titleAccent}>power innovation</span>
             </>
           }
-          description="UXQode partners with ambitious businesses to build intelligent, scalable, and secure platforms — from enterprise software and AI agents to the fintech engineering behind aama.io. A global perspective with localized service, delivered from Singapore and Nepal."
+          description="UXQode partners with ambitious businesses to build intelligent, scalable, and secure platforms — from enterprise software and AI agents to the fintech engineering behind aama.io. A global perspective with localized service, delivered from Singapore."
         />
 
         <SimpleGrid cols={{ base: 1, sm: 2, md: 3 }} spacing={1} verticalSpacing={1} className={classes.grid} mt={56}>
