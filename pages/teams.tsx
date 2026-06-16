@@ -17,6 +17,15 @@ const structuredData = {
   url: 'https://ux-qode.com/teams',
 };
 
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ux-qode.com' },
+    { '@type': 'ListItem', position: 2, name: 'Our Team', item: 'https://ux-qode.com/teams' },
+  ],
+};
+
 export default function TeamsPage() {
   return (
     <>
@@ -38,11 +47,15 @@ export default function TeamsPage() {
           property="og:description"
           content="Meet the UXQode team — engineers, designers and product thinkers based in Singapore."
         />
-        <meta property="og:image" content="https://ux-qode.com/og-image.png" />
+        <meta property="og:image" content="https://ux-qode.com/logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
         />
       </Head>
 

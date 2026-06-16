@@ -14,8 +14,10 @@ import {
   IconUserCheck,
   IconWorld,
 } from '@tabler/icons-react';
+import Image from 'next/image';
 import { Button, Container, Text, ThemeIcon } from '@mantine/core';
 import { Reveal } from '@/components/Reveal/Reveal';
+import { FAQ } from '@/components/FAQ/FAQ';
 import { FintechBand } from '@/components/service/FintechBand';
 import { SectionHeading } from '@/components/SectionHeading/SectionHeading';
 import classes from '@/components/service/service.module.css';
@@ -64,6 +66,22 @@ const values = [
     icon: IconShieldLock,
     title: 'Security-minded',
     description: 'Security and compliance are habits, built in from the very first commit.',
+  },
+];
+
+const faqs = [
+  { q: 'Where is the UXQode team based?', a: 'The team is based in Singapore.' },
+  {
+    q: 'How big is the UXQode team?',
+    a: 'UXQode has a team of 20+ engineers, designers and product specialists.',
+  },
+  {
+    q: 'What technologies does the team work with?',
+    a: 'The team covers frontend (React, Next.js, TypeScript), backend (Node, Go, Python), mobile (iOS, Android, React Native, Flutter), AI/ML, DevOps and cloud (AWS, GCP, Kubernetes), QA, product design, data and security.',
+  },
+  {
+    q: 'Can we work with the UXQode team?',
+    a: 'Yes. Get in touch via the contact form or email dev@ux-qode.com to discuss your project.',
   },
 ];
 
@@ -131,13 +149,14 @@ export function TeamsService() {
           </Reveal>
           <Reveal delay={320}>
             <div className={classes.heroShowcase}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/uxqode/heroImage.jpg"
-                alt="The UXQode team"
+                alt="The UXQode team in Singapore"
                 className={classes.heroShowcaseImg}
                 width={1200}
                 height={800}
+                sizes="(max-width: 920px) 100vw, 920px"
+                priority
               />
             </div>
           </Reveal>
@@ -239,6 +258,8 @@ export function TeamsService() {
           </div>
         </Container>
       </section>
+
+      <FAQ index="03" label="FAQ" title="Working with our team" items={faqs} />
 
       {/* CTA */}
       <section className={classes.ctaBand}>

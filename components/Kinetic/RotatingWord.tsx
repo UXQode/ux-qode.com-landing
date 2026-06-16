@@ -28,7 +28,10 @@ export function RotatingWord({ words, interval = 2200 }: RotatingWordProps) {
   const current = words[index];
 
   return (
-    <span className={classes.rotator} aria-label={words.join(', ')}>
+    <span className={classes.rotator}>
+      {/* Accessible text for the rotating words (aria-label isn't valid on a
+          roleless span — this keeps the a11y tree well-formed for SRs & agents) */}
+      <span className={classes.sr}>{words.join(', ')}</span>
       {/* Invisible sizer keeps layout width = widest word so nothing jumps */}
       <span className={classes.sizer} aria-hidden="true">
         {words.reduce((a, b) => (b.length > a.length ? b : a), '')}

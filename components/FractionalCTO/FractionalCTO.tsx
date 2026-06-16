@@ -9,6 +9,7 @@ import {
 } from '@tabler/icons-react';
 import { Button, Container, Text, ThemeIcon } from '@mantine/core';
 import { Reveal } from '@/components/Reveal/Reveal';
+import { FAQ } from '@/components/FAQ/FAQ';
 import { FintechBand } from '@/components/service/FintechBand';
 import { SectionHeading } from '@/components/SectionHeading/SectionHeading';
 import { PricingCard, PricingTier } from '@/components/service/PricingCard';
@@ -158,6 +159,29 @@ const steps = [
   { title: 'Diagnostic & plan', desc: 'We assess your stack, team and roadmap, then agree the engagement and outcomes.' },
   { title: 'Embed & execute', desc: 'We plug into your team and ship — leadership, hiring and delivery, week over week.' },
   { title: 'Handover & scale', desc: 'We document, mentor and hand the wheel to your team as it grows into the role.' },
+];
+
+const faqs = [
+  {
+    q: 'What is a fractional CTO?',
+    a: 'A fractional CTO is an experienced technology leader who works with your company part-time, providing architecture, hiring, delivery and security leadership without the cost of a full-time executive hire.',
+  },
+  {
+    q: 'How much does a fractional CTO cost?',
+    a: 'UXQode offers fractional CTO engagements as a monthly subscription — from about $2,500/month (Advisory) to $6,500/month (Embedded) — or as fixed-scope packages such as a Tech Due Diligence from $4,000 or an Architecture Sprint from $7,500. Pricing is indicative and confirmed after a discovery call.',
+  },
+  {
+    q: 'Should I choose a subscription or a packaged engagement?',
+    a: 'Choose a subscription for ongoing technical leadership that scales with your stage. Choose a packaged engagement for a defined outcome with a fixed price and end date — such as due diligence, an architecture sprint, or standing up engineering from scratch.',
+  },
+  {
+    q: 'How quickly can a fractional CTO start?',
+    a: 'Most engagements go live within a week of the first discovery call.',
+  },
+  {
+    q: 'Do you only work with fintech companies?',
+    a: 'No. UXQode works across industries, and brings especially deep fintech and fund-tech expertise from building aama.io.',
+  },
 ];
 
 const heroStats = [
@@ -350,6 +374,8 @@ export function FractionalCTO() {
           </div>
         </Container>
       </section>
+
+      <FAQ index="04" label="FAQ" title="Fractional CTO — questions, answered" items={faqs} />
 
       {/* CTA */}
       <section className={classes.ctaBand}>

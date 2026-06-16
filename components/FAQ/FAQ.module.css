@@ -1,0 +1,52 @@
+.section {
+  padding: clamp(56px, 8vw, 104px) 0;
+}
+
+.accordion {
+  margin-top: clamp(32px, 4vw, 52px);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.item {
+  border: 1px solid light-dark(var(--mantine-color-gray-3), rgba(255, 255, 255, 0.1));
+  border-radius: 4px;
+  background: light-dark(var(--mantine-color-white), #0e141d);
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.item[data-active] {
+  border-color: rgba(58, 193, 206, 0.45);
+}
+
+.control {
+  padding: clamp(16px, 1.8vw, 22px) clamp(16px, 2vw, 26px);
+
+  &:hover {
+    background: light-dark(var(--mantine-color-gray-0), rgba(255, 255, 255, 0.03));
+  }
+}
+
+.label {
+  font-family: 'Space Grotesk', Inter, sans-serif;
+  font-size: clamp(15px, 1.6vw, 18px);
+  font-weight: 600;
+  color: light-dark(var(--mantine-color-dark-9), #fff);
+  padding: 0;
+}
+
+.chevron {
+  color: #3ac1ce;
+}
+
+.panel {
+  color: light-dark(var(--mantine-color-gray-7), rgba(255, 255, 255, 0.62));
+}
+
+.panelContent {
+  font-size: 15px;
+  line-height: 1.7;
+  padding: 0 clamp(16px, 2vw, 26px) clamp(18px, 2vw, 24px);
+}

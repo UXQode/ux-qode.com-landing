@@ -19,6 +19,15 @@ const structuredData = {
   url: 'https://ux-qode.com/fractional-cto',
 };
 
+const breadcrumb = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://ux-qode.com' },
+    { '@type': 'ListItem', position: 2, name: 'Fractional CTO', item: 'https://ux-qode.com/fractional-cto' },
+  ],
+};
+
 export default function FractionalCTOPage() {
   return (
     <>
@@ -40,11 +49,15 @@ export default function FractionalCTOPage() {
           property="og:description"
           content="A seasoned CTO embedded in your team without the full-time hire — subscription or fixed-scope. By UXQode."
         />
-        <meta property="og:image" content="https://ux-qode.com/og-image.png" />
+        <meta property="og:image" content="https://ux-qode.com/logo.png" />
         <meta name="twitter:card" content="summary_large_image" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
         />
       </Head>
 

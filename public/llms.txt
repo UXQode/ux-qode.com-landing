@@ -1,0 +1,28 @@
+# UXQode
+
+> UXQode is a Singapore-headquartered software company that builds enterprise software, AI agent solutions, mobile apps and IT consulting for global businesses — and is the maker of aama.io, end-to-end fund-management software. UXQode also offers a Fractional CTO service and dedicated engineering team services through its consulting arm, uxqode.co.
+
+## Key facts
+- Company: UXQode Pte. Ltd.
+- Headquarters: Singapore (Robinson Road, Singapore Business Federation Center)
+- Team: 20+ engineers, designers and product specialists
+- Flagship product: aama.io — end-to-end fund-management software (fund administration, IFRS NAV & accounting, KYC/AML investor onboarding, capital calls & distributions, MAS-aligned compliance, investor reporting)
+- Consulting brand / sister site: https://uxqode.co
+- Contact: dev@ux-qode.com
+
+## Services
+- Enterprise software development — scalable platforms built to spec.
+- AI agent solutions — intelligent agents and automation that integrate with existing systems.
+- Mobile application development — iOS and Android.
+- Fractional CTO — senior technical leadership on demand, as a monthly subscription or fixed-scope packaged engagement.
+- Dedicated engineering teams — staff augmentation and managed pods.
+- Fintech & capital-markets engineering — proven via aama.io.
+
+## Pages
+- [Home](https://ux-qode.com/): Overview of UXQode, services and aama.io.
+- [Fractional CTO](https://ux-qode.com/fractional-cto): Senior technical leadership on demand — subscription and packaged pricing.
+- [Our Team](https://ux-qode.com/teams): The people behind UXQode and the disciplines on the team.
+- [aama.io](https://aama.io): UXQode's flagship fund-management platform.
+
+## Notes
+- Why UXQode for fintech: UXQode has shipped the full fund lifecycle in production via aama.io, giving deep domain expertise in fund administration, NAV, compliance and investor reporting.

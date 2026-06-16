@@ -24,7 +24,7 @@ export default function App({ Component, pageProps }: AppProps) {
       <Head>
         <meta
           name="viewport"
-          content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no"
+          content="width=device-width, initial-scale=1"
         />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
