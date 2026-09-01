@@ -11,28 +11,28 @@ import classes from './Footer.module.css';
 
 const footerLinks = [
   {
-    heading: 'aama.io',
+    heading: 'What We Build',
     links: [
-      { label: 'Fund Management', href: 'https://aama.io', external: true },
-      { label: 'Fund Administration', href: '/#product' },
-      { label: 'Investor Onboarding', href: '/#product' },
-      { label: 'Compliance & Reporting', href: '/#product' },
+      { label: 'AI Back Office', href: '/solutions/ai-back-office' },
+      { label: 'Custom AI Solutions', href: '/solutions/custom-ai' },
+      { label: 'Fund Administration Platforms', href: '/work' },
+      { label: 'aama.io', href: 'https://aama.io', external: true },
     ],
   },
   {
     heading: 'Services',
     links: [
-      { label: 'Enterprise Software', href: '/#features' },
-      { label: 'AI Agent Solutions', href: '/#features' },
+      { label: 'All Solutions', href: '/solutions' },
       { label: 'Fractional CTO', href: '/fractional-cto' },
+      { label: 'Dedicated Teams', href: '/teams' },
       { label: 'IT Consulting', href: '/#contact-us' },
     ],
   },
   {
     heading: 'Company',
     links: [
+      { label: 'About', href: '/about' },
       { label: 'Our Team', href: '/teams' },
-      { label: 'Fractional CTO', href: '/fractional-cto' },
       { label: 'Contact Us', href: '/#contact-us' },
       { label: 'Sister Company', href: 'https://uxqode.co', external: true },
     ],
@@ -77,9 +77,8 @@ export function Footer() {
               <Logo height={40} />
             </Anchor>
             <Text className={classes.tagline} mt="md">
-              AI-powered digital solutions engineered for a global future — and the makers of
-              aama.io, fund-management software for modern fund managers. Headquartered in
-              Singapore.
+              We build the financial software that runs behind licensed institutions — and the AI
+              that runs their back office. Singapore-incorporated, maker of aama.io.
             </Text>
             <Group gap="xs" mt="lg">
               {socials.map((social) => (

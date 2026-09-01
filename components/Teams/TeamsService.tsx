@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import {
   IconArrowRight,
   IconChartBar,
@@ -14,38 +15,75 @@ import {
   IconUserCheck,
   IconWorld,
 } from '@tabler/icons-react';
-import Image from 'next/image';
 import { Button, Container, Text, ThemeIcon } from '@mantine/core';
-import { Reveal } from '@/components/Reveal/Reveal';
 import { FAQ } from '@/components/FAQ/FAQ';
-import { FintechBand } from '@/components/service/FintechBand';
+import { Reveal } from '@/components/Reveal/Reveal';
 import { SectionHeading } from '@/components/SectionHeading/SectionHeading';
+import { FintechBand } from '@/components/service/FintechBand';
 import classes from '@/components/service/service.module.css';
 
 const UXQODE = 'https://uxqode.co';
 
 const disciplines = [
-  { icon: IconDeviceDesktop, title: 'Frontend', desc: 'React, Next.js & TypeScript — accessible, polished interfaces and design systems.' },
-  { icon: IconServerBolt, title: 'Backend', desc: 'Node, Go and Python — APIs, data and distributed systems built to scale.' },
-  { icon: IconDeviceMobileCode, title: 'Mobile', desc: 'Native iOS & Android plus React Native and Flutter for cross-platform apps.' },
-  { icon: IconRobot, title: 'AI & ML', desc: 'LLM apps, agents, RAG and the data pipelines that feed them.' },
-  { icon: IconCloud, title: 'DevOps & Cloud', desc: 'AWS, GCP, Kubernetes and CI/CD — infrastructure as code, shipped safely.' },
-  { icon: IconChecklist, title: 'QA & Automation', desc: 'Manual, automated and performance testing baked into delivery.' },
-  { icon: IconPalette, title: 'Product Design', desc: 'UX research, UI design and prototyping that make the product feel considered.' },
-  { icon: IconChartBar, title: 'Data & Analytics', desc: 'Warehousing, dashboards and the insight to act on them.' },
-  { icon: IconShieldLock, title: 'Security', desc: 'AppSec, audits and compliance readiness — habits, not afterthoughts.' },
+  {
+    icon: IconDeviceDesktop,
+    title: 'Frontend',
+    desc: 'React, Next.js & TypeScript — accessible, polished interfaces and design systems.',
+  },
+  {
+    icon: IconServerBolt,
+    title: 'Backend',
+    desc: 'Node, Go and Python — APIs, data and distributed systems built to scale.',
+  },
+  {
+    icon: IconDeviceMobileCode,
+    title: 'Mobile',
+    desc: 'Native iOS & Android plus React Native and Flutter for cross-platform apps.',
+  },
+  {
+    icon: IconRobot,
+    title: 'AI & ML',
+    desc: 'LLM apps, agents, RAG and the data pipelines that feed them.',
+  },
+  {
+    icon: IconCloud,
+    title: 'DevOps & Cloud',
+    desc: 'AWS, GCP, Kubernetes and CI/CD — infrastructure as code, shipped safely.',
+  },
+  {
+    icon: IconChecklist,
+    title: 'QA & Automation',
+    desc: 'Manual, automated and performance testing baked into delivery.',
+  },
+  {
+    icon: IconPalette,
+    title: 'Product Design',
+    desc: 'UX research, UI design and prototyping that make the product feel considered.',
+  },
+  {
+    icon: IconChartBar,
+    title: 'Data & Analytics',
+    desc: 'Warehousing, dashboards and the insight to act on them.',
+  },
+  {
+    icon: IconShieldLock,
+    title: 'Security',
+    desc: 'AppSec, audits and compliance readiness — habits, not afterthoughts.',
+  },
 ];
 
 const values = [
   {
     icon: IconUserCheck,
     title: 'Senior by default',
-    description: 'No juniors hidden in the mix — experienced people who have shipped real products before.',
+    description:
+      'No juniors hidden in the mix — experienced people who have shipped real products before.',
   },
   {
     icon: IconWorld,
     title: 'One accountable team',
-    description: 'A single Singapore-based team that owns the work end to end — no handoffs, no scattered freelancers.',
+    description:
+      'A single Singapore-based team that owns the work end to end — no handoffs, no scattered freelancers.',
   },
   {
     icon: IconTargetArrow,
@@ -108,8 +146,8 @@ export function TeamsService() {
           </Reveal>
           <Reveal delay={140}>
             <p className={classes.heroLead}>
-              We&apos;re a team of 20+ engineers, designers and product thinkers based in Singapore —
-              the people who design, build and ship UXQode&apos;s work, including aama.io.
+              We&apos;re a team of 20+ engineers, designers and product thinkers based in Singapore
+              — the people who design, build and ship UXQode&apos;s work, including aama.io.
             </p>
           </Reveal>
           <Reveal delay={200}>
@@ -212,8 +250,8 @@ export function TeamsService() {
         body={
           <>
             Our team didn&apos;t read about the fund lifecycle — we built it. UXQode is the maker of{' '}
-            <strong>aama.io</strong>, end-to-end fund-management software in production today, covering
-            administration, NAV, compliance and investor reporting.
+            <strong>aama.io</strong>, end-to-end fund-management software in production today,
+            covering administration, NAV, compliance and investor reporting.
           </>
         }
         ctas={[{ label: 'See what we built — aama.io', href: 'https://aama.io', external: true }]}
@@ -268,8 +306,8 @@ export function TeamsService() {
             <div className={classes.ctaGlow} aria-hidden="true" />
             <h2 className={classes.ctaTitle}>Want to build something with our team?</h2>
             <p className={classes.ctaText}>
-              Tell us what you&apos;re working on and we&apos;ll point the right people at it — usually
-              within a day.
+              Tell us what you&apos;re working on and we&apos;ll point the right people at it —
+              usually within a day.
             </p>
             <div className={classes.ctaActions}>
               <Button

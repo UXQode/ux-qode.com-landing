@@ -7,10 +7,11 @@ import { Logo } from '../Logo/Logo';
 import classes from './Header.module.css';
 
 const navLinks = [
-  { label: 'Services', href: '/#features' },
+  { label: 'Solutions', href: '/solutions' },
+  { label: 'Our Work', href: '/work' },
+  { label: 'About', href: '/about' },
   { label: 'Fractional CTO', href: '/fractional-cto' },
   { label: 'Team', href: '/teams' },
-  { label: 'Products', href: '/#product' },
   { label: 'Contact', href: '/#contact-us' },
 ];
 
@@ -85,16 +86,15 @@ export function Header() {
             </Anchor>
           ))}
           <Button
-            component="a"
-            href="https://aama.io"
-            target="_blank"
-            rel="noopener noreferrer"
+            component={Link}
+            href="/#contact-us"
             radius="xl"
             className={classes.cta}
             mt="sm"
             fullWidth
+            onClick={close}
           >
-            Try aama.io
+            Talk to our team
           </Button>
         </Stack>
       </Drawer>

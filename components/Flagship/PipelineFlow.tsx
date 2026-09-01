@@ -1,27 +1,30 @@
 import {
-  IconCash,
-  IconChartHistogram,
-  IconFileInvoice,
-  IconUserCheck,
-  IconWallet,
+  IconCategory2,
+  IconChecklist,
+  IconHistory,
+  IconScan,
+  IconUpload,
+  IconUsersGroup,
 } from '@tabler/icons-react';
 import { useInView } from '@/hooks/useInView';
-import classes from './FundFlow.module.css';
+import classes from './PipelineFlow.module.css';
 
 const steps = [
-  { icon: IconUserCheck, label: 'Onboard LPs', sub: 'KYC / AML' },
-  { icon: IconCash, label: 'Capital Calls', sub: 'Drawdowns' },
-  { icon: IconChartHistogram, label: 'Accounting', sub: 'NAV · IFRS' },
-  { icon: IconFileInvoice, label: 'Reporting', sub: 'LP portal' },
-  { icon: IconWallet, label: 'Distributions', sub: 'Waterfalls' },
+  { icon: IconUpload, label: 'Drop it in', sub: 'Any format' },
+  { icon: IconScan, label: 'AI extraction', sub: 'Every field' },
+  { icon: IconChecklist, label: 'Validation', sub: 'Before posting' },
+  { icon: IconCategory2, label: 'Classify & post', sub: 'Your chart of accounts' },
+  { icon: IconUsersGroup, label: 'Exceptions', sub: 'To humans' },
+  { icon: IconHistory, label: 'Audit trail', sub: 'Always' },
 ];
 
 /**
- * Animated fund-lifecycle pipeline. As the section scrolls into view the
+ * Animated document-processing pipeline. As the section scrolls into view the
  * connector "fills" left-to-right and each stage pops in sequence — an
- * at-a-glance map of how a fund runs end-to-end on aama.io.
+ * at-a-glance map of how a document moves from inbox to posted, reconciled
+ * entry. Adapted from the fund-lifecycle diagram in components/Product/FundFlow.
  */
-export function FundFlow() {
+export function PipelineFlow() {
   const { ref, inView } = useInView<HTMLDivElement>({ threshold: 0.3 });
 
   return (
@@ -40,7 +43,7 @@ export function FundFlow() {
         <div
           key={s.label}
           className={`${classes.step} ${inView ? classes.stepOn : ''}`}
-          style={{ ['--d' as string]: `${i * 180}ms` }}
+          style={{ ['--d' as string]: `${i * 140}ms` }}
         >
           <div className={classes.node}>
             <span className={classes.ring} />

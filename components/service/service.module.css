@@ -189,6 +189,50 @@
   }
 }
 
+.grid4 {
+  --line: light-dark(var(--mantine-color-gray-3), rgba(255, 255, 255, 0.1));
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  margin-top: clamp(36px, 4vw, 56px);
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+
+  @media (max-width: $mantine-breakpoint-md) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.grid5 {
+  --line: light-dark(var(--mantine-color-gray-3), rgba(255, 255, 255, 0.1));
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  margin-top: clamp(36px, 4vw, 56px);
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+
+  @media (max-width: $mantine-breakpoint-md) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  @media (max-width: $mantine-breakpoint-sm) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $mantine-breakpoint-xs) {
+    grid-template-columns: 1fr;
+  }
+}
+
 .card {
   position: relative;
   display: flex;
@@ -668,4 +712,51 @@
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
+}
+
+/* ---------------- Dark diagram frame (hosts PipelineFlow, etc.) ---------------- */
+.pipelineFrame {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(40px, 6vw, 72px) clamp(16px, 4vw, 40px);
+  border-radius: 8px;
+  margin-top: clamp(36px, 4vw, 56px);
+  background: linear-gradient(135deg, #0a1424 0%, #0b1c30 55%, #07121d 100%);
+  border: 1px solid rgba(58, 193, 206, 0.2);
+}
+
+/* ---------------- Pull-quote block ---------------- */
+.quote {
+  position: relative;
+  margin: clamp(32px, 4vw, 48px) 0 0;
+  padding: clamp(24px, 3vw, 36px) clamp(24px, 3vw, 40px);
+  border-left: 3px solid #3ac1ce;
+  border-radius: 0 6px 6px 0;
+  background: light-dark(var(--mantine-color-gray-0), rgba(255, 255, 255, 0.03));
+}
+
+.quoteText {
+  font-family: 'Space Grotesk', sans-serif;
+  font-style: italic;
+  font-size: clamp(17px, 2vw, 21px);
+  font-weight: 600;
+  line-height: 1.55;
+  color: light-dark(var(--mantine-color-dark-9), #fff);
+}
+
+.quoteAttribution {
+  margin-top: 16px;
+  font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: light-dark(var(--mantine-color-gray-6), rgba(255, 255, 255, 0.5));
+}
+
+/* ---------------- Chip list (industries, tags) ---------------- */
+.chipList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: clamp(28px, 3vw, 40px);
 }

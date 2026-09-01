@@ -29,9 +29,10 @@ const defaultChips = [
 
 const defaultBody = (
   <>
-    UXQode is the maker of <strong>aama.io</strong>, an end-to-end fund-management platform. Our teams
-    have shipped the entire fund lifecycle in production — not as a demo, but as software real fund
-    managers run on every day. That domain depth ships with every engineer and every engagement.
+    UXQode is the maker of <strong>aama.io</strong>, an end-to-end fund-management platform. Our
+    teams have shipped the entire fund lifecycle in production — not as a demo, but as software real
+    fund managers run on every day. That domain depth ships with every engineer and every
+    engagement.
   </>
 );
 
@@ -39,7 +40,8 @@ export function FintechBand({
   variant = 'full',
   title = (
     <>
-      We don&apos;t just understand fintech — <span className={classes.heroAccent}>we built it</span>
+      We don&apos;t just understand fintech —{' '}
+      <span className={classes.heroAccent}>we built it</span>
     </>
   ),
   body = defaultBody,

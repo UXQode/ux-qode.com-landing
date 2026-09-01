@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { IconArrowRight } from '@tabler/icons-react';
 import { Button, Container, Text } from '@mantine/core';
-import { RotatingWord } from '@/components/Kinetic/RotatingWord';
 import { WordReveal } from '@/components/Kinetic/WordReveal';
 import { useCountUp } from '@/hooks/useCountUp';
 import { useInView } from '@/hooks/useInView';
@@ -11,20 +10,18 @@ import { HeroVisual } from './HeroVisual';
 import classes from './Hero.module.css';
 
 const stats = [
-  { value: 200, suffix: '+', decimals: 0, label: 'Clients Served' },
-  { value: 30, suffix: '+', decimals: 0, label: 'Apps Delivered' },
-  { value: 20, suffix: '+', decimals: 0, label: 'Engineers' },
+  { value: 9, suffix: '+', decimals: 0, label: 'Years in Fintech' },
+  { value: 50, suffix: '+', decimals: 0, label: 'Engineers Trained' },
+  { value: 10, suffix: '-yr', decimals: 0, label: 'Anchor Client Contract' },
 ];
 
-const rotating = ['SOFTWARE', 'PLATFORMS', 'AI AGENTS', 'aama.io'];
-
 const marqueeWords = [
+  'AI BACK OFFICE',
   'FUND ADMINISTRATION',
-  'NAV & ACCOUNTING',
-  'INVESTOR ONBOARDING',
-  'CAPITAL CALLS',
+  'BANKING AUTOMATION',
+  'RECONCILIATION',
+  'CUSTOM AI SOLUTIONS',
   'COMPLIANCE',
-  'AI AGENTS',
   'ENTERPRISE SOFTWARE',
 ];
 
@@ -73,47 +70,47 @@ export function Hero() {
         <div className={classes.overline}>
           <span className={classes.index}>01</span>
           <span className={classes.overlineLine} />
-          <span className={classes.overlineLabel}>UXQode · AI-Powered Engineering · Singapore</span>
+          <span className={classes.overlineLabel}>
+            UXQode · Financial Software &amp; AI Back Offices · Singapore
+          </span>
         </div>
 
         <h1 className={classes.title}>
-          <WordReveal lines={['We build', 'intelligent']} className={classes.titleStatic} />
-          <span className={classes.rotateLine}>
-            <RotatingWord words={rotating} />
-          </span>
+          <WordReveal
+            lines={['Financial software for', 'licensed institutions.']}
+            className={classes.titleStatic}
+          />
         </h1>
 
         <div className={classes.row}>
           <div className={classes.left}>
             <Text component="p" className={classes.description}>
-              UXQode engineers the digital products behind modern business — and{' '}
-              <strong>aama.io</strong>, the platform that runs an entire fund in one place. From
-              enterprise software to AI agents, built in Singapore, shipped worldwide.
+              And the AI that runs their back office. UXQode is a Singapore-incorporated engineering
+              firm building fund administration platforms, banking automation, and AI-powered
+              back-office systems — for licensed fund managers, capital markets firms, and banks.
             </Text>
 
             <div className={classes.controls}>
               <Button
                 ref={magneticRef}
-                component="a"
-                href="https://aama.io"
-                target="_blank"
-                rel="noopener noreferrer"
+                component={Link}
+                href="/#contact-us"
                 size="lg"
                 radius="0"
                 className={classes.primaryBtn}
                 rightSection={<IconArrowRight size={18} />}
               >
-                Explore aama.io
+                Talk to our team
               </Button>
               <Button
                 component={Link}
-                href="/#contact-us"
+                href="/solutions/ai-back-office"
                 size="lg"
                 radius="0"
                 variant="outline"
                 className={classes.secondaryBtn}
               >
-                Talk to Us
+                See the AI back office
               </Button>
             </div>
 

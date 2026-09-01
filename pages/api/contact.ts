@@ -35,9 +35,7 @@ interface Lead {
 /** Find a contact by email and update it, or create a new one. Returns the contact id. */
 async function upsertContact(client: Client, { email, name, message }: Lead): Promise<string> {
   const search = await client.crm.contacts.searchApi.doSearch({
-    filterGroups: [
-      { filters: [{ propertyName: 'email', operator: 'EQ', value: email } as never] },
-    ],
+    filterGroups: [{ filters: [{ propertyName: 'email', operator: 'EQ', value: email } as never] }],
     properties: ['email'],
     sorts: [],
     limit: 1,

@@ -8,10 +8,10 @@ import {
   IconUsersGroup,
 } from '@tabler/icons-react';
 import { Button, Container, Text, ThemeIcon } from '@mantine/core';
-import { Reveal } from '@/components/Reveal/Reveal';
 import { FAQ } from '@/components/FAQ/FAQ';
-import { FintechBand } from '@/components/service/FintechBand';
+import { Reveal } from '@/components/Reveal/Reveal';
 import { SectionHeading } from '@/components/SectionHeading/SectionHeading';
+import { FintechBand } from '@/components/service/FintechBand';
 import { PricingCard, PricingTier } from '@/components/service/PricingCard';
 import classes from '@/components/service/service.module.css';
 
@@ -61,7 +61,8 @@ const subscription: PricingTier[] = [
     name: 'Advisory',
     price: '$2,500',
     period: '/ month',
-    blurb: 'A few hours a week of senior guidance for founders who mostly need direction, not hands on keys.',
+    blurb:
+      'A few hours a week of senior guidance for founders who mostly need direction, not hands on keys.',
     features: [
       'Weekly strategy & roadmap reviews',
       'Architecture & tooling guidance',
@@ -91,7 +92,8 @@ const subscription: PricingTier[] = [
   {
     name: 'Scale',
     price: 'Custom',
-    blurb: 'Multiple days a week across product, security and org — for teams in a critical growth or raise phase.',
+    blurb:
+      'Multiple days a week across product, security and org — for teams in a critical growth or raise phase.',
     features: [
       'Everything in Embedded',
       'Multi-day weekly engagement',
@@ -110,7 +112,8 @@ const packaged: PricingTier[] = [
     from: true,
     price: '$4,000',
     period: 'one-off',
-    blurb: 'A 2-week assessment of a codebase, team and roadmap — for investors or founders who need the truth.',
+    blurb:
+      'A 2-week assessment of a codebase, team and roadmap — for investors or founders who need the truth.',
     features: [
       '2-week engagement',
       'Code, architecture & security review',
@@ -127,7 +130,8 @@ const packaged: PricingTier[] = [
     period: 'one-off',
     featured: true,
     badge: 'Most requested',
-    blurb: 'A focused 3–4 week deep-dive that leaves you with a target architecture and a delivery plan.',
+    blurb:
+      'A focused 3–4 week deep-dive that leaves you with a target architecture and a delivery plan.',
     features: [
       '3–4 week engagement',
       'Target architecture & scalability plan',
@@ -142,7 +146,8 @@ const packaged: PricingTier[] = [
     from: true,
     price: '$12,000',
     period: 'one-off',
-    blurb: 'A 6-week engagement to stand up engineering foundations from zero — stack, process and first hires.',
+    blurb:
+      'A 6-week engagement to stand up engineering foundations from zero — stack, process and first hires.',
     features: [
       '6-week engagement',
       'Stack, CI/CD & environments set up',
@@ -155,10 +160,22 @@ const packaged: PricingTier[] = [
 ];
 
 const steps = [
-  { title: 'Discovery call', desc: 'A 30-minute call to understand your stage, goals and where the technical risk sits.' },
-  { title: 'Diagnostic & plan', desc: 'We assess your stack, team and roadmap, then agree the engagement and outcomes.' },
-  { title: 'Embed & execute', desc: 'We plug into your team and ship — leadership, hiring and delivery, week over week.' },
-  { title: 'Handover & scale', desc: 'We document, mentor and hand the wheel to your team as it grows into the role.' },
+  {
+    title: 'Discovery call',
+    desc: 'A 30-minute call to understand your stage, goals and where the technical risk sits.',
+  },
+  {
+    title: 'Diagnostic & plan',
+    desc: 'We assess your stack, team and roadmap, then agree the engagement and outcomes.',
+  },
+  {
+    title: 'Embed & execute',
+    desc: 'We plug into your team and ship — leadership, hiring and delivery, week over week.',
+  },
+  {
+    title: 'Handover & scale',
+    desc: 'We document, mentor and hand the wheel to your team as it grows into the role.',
+  },
 ];
 
 const faqs = [
@@ -225,7 +242,13 @@ export function FractionalCTO() {
               >
                 Book a discovery call
               </Button>
-              <Button component="a" href="#pricing" size="lg" radius={0} className={classes.btnGhost}>
+              <Button
+                component="a"
+                href="#pricing"
+                size="lg"
+                radius={0}
+                className={classes.btnGhost}
+              >
                 See pricing
               </Button>
             </div>
@@ -251,7 +274,8 @@ export function FractionalCTO() {
             label="What you get"
             title={
               <>
-                Everything a great CTO does — <span className={classes.heroAccent}>none of the overhead</span>
+                Everything a great CTO does —{' '}
+                <span className={classes.heroAccent}>none of the overhead</span>
               </>
             }
             description="One accountable technical leader covering the work that usually needs three hires, plugged into your team from week one."
@@ -293,10 +317,10 @@ export function FractionalCTO() {
         }
         body={
           <>
-            Beyond general engineering leadership, UXQode brings deep fund-tech and fintech expertise —
-            we&apos;re the maker of <strong>aama.io</strong>, and we&apos;ve taken the full fund
-            lifecycle through NAV, compliance and audit in production. If you operate in a regulated
-            domain, that&apos;s a CTO who&apos;s seen the hard parts before.
+            Beyond general engineering leadership, UXQode brings deep fund-tech and fintech
+            expertise — we&apos;re the maker of <strong>aama.io</strong>, and we&apos;ve taken the
+            full fund lifecycle through NAV, compliance and audit in production. If you operate in a
+            regulated domain, that&apos;s a CTO who&apos;s seen the hard parts before.
           </>
         }
         ctas={[{ label: 'Explore aama.io', href: 'https://aama.io', external: true }]}
@@ -345,8 +369,8 @@ export function FractionalCTO() {
               ))}
             </div>
             <p className={classes.priceNote}>
-              Prices in USD and indicative. Engagements are tailored after a discovery call — multi-month
-              and equity-inclusive arrangements available.
+              Prices in USD and indicative. Engagements are tailored after a discovery call —
+              multi-month and equity-inclusive arrangements available.
             </p>
           </Reveal>
         </Container>
@@ -358,7 +382,11 @@ export function FractionalCTO() {
           <SectionHeading
             index="03"
             label="How it works"
-            title={<>From first call to <span className={classes.heroAccent}>shipping</span></>}
+            title={
+              <>
+                From first call to <span className={classes.heroAccent}>shipping</span>
+              </>
+            }
             description="A lightweight start — most engagements are live within a week of the first conversation."
           />
           <div className={classes.steps}>
@@ -384,8 +412,8 @@ export function FractionalCTO() {
             <div className={classes.ctaGlow} aria-hidden="true" />
             <h2 className={classes.ctaTitle}>Get a CTO in your corner this week</h2>
             <p className={classes.ctaText}>
-              Tell us where you are and what&apos;s at stake. We&apos;ll come back with the engagement
-              that fits — usually within a day.
+              Tell us where you are and what&apos;s at stake. We&apos;ll come back with the
+              engagement that fits — usually within a day.
             </p>
             <div className={classes.ctaActions}>
               <Button

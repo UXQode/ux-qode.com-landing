@@ -69,7 +69,7 @@ export function Contact() {
               Let&apos;s build something <span className={classes.accent}>great</span>
             </>
           }
-          description="Questions about our services, pricing, or a custom platform like aama.io? Our Singapore-based team operates globally and replies within 24 hours."
+          description="Questions about the AI back office, a custom AI engagement, or a platform build like aama.io? Our Singapore-based team operates globally and replies within 24 hours."
         />
 
         <Reveal direction="up">

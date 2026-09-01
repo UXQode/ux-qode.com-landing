@@ -1,6 +1,6 @@
-import Head from 'next/head';
 import { Footer } from '@/components/Footer/Footer';
 import { Header } from '@/components/Header/Header';
+import { Seo } from '@/components/Seo/Seo';
 import { TeamsService } from '@/components/Teams/TeamsService';
 
 const structuredData = {
@@ -29,35 +29,13 @@ const breadcrumb = {
 export default function TeamsPage() {
   return (
     <>
-      <Head>
-        <title>Our Team — The People Behind UXQode | Singapore</title>
-        <meta
-          name="description"
-          content="Meet the UXQode team — 20+ engineers, designers and product thinkers based in Singapore. The people who design, build and ship our work, including aama.io."
-        />
-        <meta
-          name="keywords"
-          content="UXQode team, our team, software engineers, product designers, Singapore, aama.io, technology company team"
-        />
-        <link rel="canonical" href="https://ux-qode.com/teams" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://ux-qode.com/teams" />
-        <meta property="og:title" content="Our Team — The People Behind UXQode" />
-        <meta
-          property="og:description"
-          content="Meet the UXQode team — engineers, designers and product thinkers based in Singapore."
-        />
-        <meta property="og:image" content="https://ux-qode.com/logo.png" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }}
-        />
-      </Head>
+      <Seo
+        title="Our Team — Dedicated Engineering Teams | UXQode"
+        description="Meet the UXQode team — 20+ engineers, designers and product thinkers based in Singapore. The people who design, build and ship our work, including aama.io and the AI back office."
+        path="/teams"
+        keywords="UXQode team, dedicated engineering teams, our team, software engineers, product designers, Singapore, aama.io, technology company team"
+        structuredData={[structuredData, breadcrumb]}
+      />
 
       <Header />
       <main>
