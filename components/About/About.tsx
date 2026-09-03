@@ -79,7 +79,7 @@ export function About() {
     <div className={classes.page}>
       {/* Hero */}
       <section className={classes.hero}>
-        <Container size="lg">
+        <Container size="xl">
           <Reveal direction="fade">
             <span className={classes.eyebrow}>About UXQode</span>
           </Reveal>
@@ -110,7 +110,7 @@ export function About() {
 
       {/* Story */}
       <section className={classes.section}>
-        <Container size="lg">
+        <Container size="xl">
           <Reveal direction="up">
             <Text className={classes.priceSub} maw={720} mx="auto" ta="center" fz={16}>
               Our founding team&apos;s background spans enterprise software delivery for companies
@@ -130,7 +130,7 @@ export function About() {
 
       {/* Why UXQode */}
       <section className={`${classes.section} ${classes.sectionAlt}`}>
-        <Container size="lg">
+        <Container size="xl">
           <SectionHeading
             index="01"
             label="Why UXQode"
@@ -172,7 +172,7 @@ export function About() {
 
       {/* CTA */}
       <section className={classes.ctaBand}>
-        <Container size="lg">
+        <Container size="xl">
           <div className={classes.ctaInner}>
             <div className={classes.ctaGlow} aria-hidden="true" />
             <h2 className={classes.ctaTitle}>Meet the team that builds it</h2>

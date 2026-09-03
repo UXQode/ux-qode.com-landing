@@ -16,7 +16,7 @@ const credibility = ['We operate what we build', 'Regulatory fluency', 'Proven m
 export function AboutStrip() {
   return (
     <section className={classes.section} id="about" aria-label="About UXQode">
-      <Container size="lg">
+      <Container size="xl">
         <SectionHeading
           index="02"
           label="About UXQode"

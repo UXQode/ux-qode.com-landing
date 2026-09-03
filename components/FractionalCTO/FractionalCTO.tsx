@@ -212,7 +212,7 @@ export function FractionalCTO() {
     <div className={classes.page}>
       {/* Hero */}
       <section className={classes.hero}>
-        <Container size="lg">
+        <Container size="xl">
           <Reveal direction="fade">
             <span className={classes.eyebrow}>Fractional CTO · uxqode.co</span>
           </Reveal>
@@ -268,7 +268,7 @@ export function FractionalCTO() {
 
       {/* Capabilities */}
       <section className={classes.section}>
-        <Container size="lg">
+        <Container size="xl">
           <SectionHeading
             index="01"
             label="What you get"
@@ -328,7 +328,7 @@ export function FractionalCTO() {
 
       {/* Pricing */}
       <section className={`${classes.section} ${classes.sectionAlt}`} id="pricing">
-        <Container size="lg">
+        <Container size="xl">
           <SectionHeading
             index="02"
             label="Engagement & pricing"
@@ -378,7 +378,7 @@ export function FractionalCTO() {
 
       {/* Process */}
       <section className={classes.section}>
-        <Container size="lg">
+        <Container size="xl">
           <SectionHeading
             index="03"
             label="How it works"
@@ -407,7 +407,7 @@ export function FractionalCTO() {
 
       {/* CTA */}
       <section className={classes.ctaBand}>
-        <Container size="lg">
+        <Container size="xl">
           <div className={classes.ctaInner}>
             <div className={classes.ctaGlow} aria-hidden="true" />
             <h2 className={classes.ctaTitle}>Get a CTO in your corner this week</h2>

@@ -28,7 +28,7 @@ export function Header() {
   return (
     <>
       <header className={`${classes.header} ${scrolled ? classes.scrolled : ''}`}>
-        <Container size="lg">
+        <Container size="xl">
           <div className={classes.inner}>
             <Anchor
               component={Link}

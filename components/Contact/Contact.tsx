@@ -60,7 +60,7 @@ export function Contact() {
 
   return (
     <section className={classes.section} id="contact-us" aria-label="Contact">
-      <Container size="lg">
+      <Container size="xl">
         <SectionHeading
           index="06"
           label="Contact"

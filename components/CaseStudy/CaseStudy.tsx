@@ -68,7 +68,7 @@ export function CaseStudy() {
     <div className={classes.page}>
       {/* Hero */}
       <section className={classes.hero}>
-        <Container size="lg">
+        <Container size="xl">
           <Reveal direction="fade">
             <span className={classes.eyebrow}>What We&apos;ve Done</span>
           </Reveal>
@@ -94,7 +94,7 @@ export function CaseStudy() {
       </section>
 
       <section className={classes.section}>
-        <Container size="lg">
+        <Container size="xl">
           <Reveal direction="up">
             <div className={statsClasses.gaugeGrid}>
               {gauges.map((g) => (
@@ -201,7 +201,7 @@ export function CaseStudy() {
 
       {/* CTA */}
       <section className={classes.ctaBand}>
-        <Container size="lg">
+        <Container size="xl">
           <div className={classes.ctaInner}>
             <div className={classes.ctaGlow} aria-hidden="true" />
             <h2 className={classes.ctaTitle}>Want results like this on your own operation?</h2>

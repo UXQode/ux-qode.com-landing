@@ -165,7 +165,7 @@ export function Flagship() {
     <div className={classes.page}>
       {/* Hero */}
       <section className={classes.hero}>
-        <Container size="lg">
+        <Container size="xl">
           <Reveal direction="fade">
             <span className={classes.eyebrow}>Flagship · AI-Powered Back-Office Automation</span>
           </Reveal>
@@ -213,7 +213,7 @@ export function Flagship() {
 
       {/* How it works */}
       <section className={classes.section} id="pipeline">
-        <Container size="lg">
+        <Container size="xl">
           <SectionHeading
             index="01"
             label="How the document pipeline works"
@@ -279,7 +279,7 @@ export function Flagship() {
 
       {/* Trust & controls */}
       <section className={`${classes.section} ${classes.sectionAlt}`}>
-        <Container size="lg">
+        <Container size="xl">
           <SectionHeading
             index="02"
             label="Built for regulated institutions"
@@ -315,7 +315,7 @@ export function Flagship() {
 
       {/* Benefits */}
       <section className={classes.section}>
-        <Container size="lg">
+        <Container size="xl">
           <SectionHeading
             index="03"
             label="The payoff"
@@ -352,7 +352,7 @@ export function Flagship() {
 
       {/* CTA */}
       <section className={classes.ctaBand}>
-        <Container size="lg">
+        <Container size="xl">
           <div className={classes.ctaInner}>
             <div className={classes.ctaGlow} aria-hidden="true" />
             <h2 className={classes.ctaTitle}>See the AI back office on your own documents</h2>

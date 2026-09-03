@@ -39,7 +39,7 @@ export function SolutionsTeaser() {
       id="solutions"
       aria-label="Solutions"
     >
-      <Container size="lg">
+      <Container size="xl">
         <SectionHeading
           index="03"
           label="Solutions"

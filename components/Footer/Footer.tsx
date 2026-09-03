@@ -50,7 +50,7 @@ export function Footer() {
 
   return (
     <footer className={classes.footer}>
-      <Container size="lg" className={classes.inner}>
+      <Container size="xl" className={classes.inner}>
         {/* Editorial CTA strip */}
         <div className={classes.cta}>
           <span className={classes.ctaKicker}>Start a conversation</span>

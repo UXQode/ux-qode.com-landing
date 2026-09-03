@@ -92,7 +92,7 @@ export function FintechBand({
   if (withSection) {
     return (
       <section className={classes.section}>
-        <Container size="lg">{band}</Container>
+        <Container size="xl">{band}</Container>
       </section>
     );
   }

@@ -14,7 +14,7 @@ const stats = [
 export function CaseStudyTeaser() {
   return (
     <section className={classes.section} id="work" aria-label="What we've done">
-      <Container size="lg">
+      <Container size="xl">
         <SectionHeading
           index="04"
           label="What We've Done"

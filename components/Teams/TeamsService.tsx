@@ -135,7 +135,7 @@ export function TeamsService() {
     <div className={classes.page}>
       {/* Hero */}
       <section className={classes.hero}>
-        <Container size="lg">
+        <Container size="xl">
           <Reveal direction="fade">
             <span className={classes.eyebrow}>Our Team</span>
           </Reveal>
@@ -203,7 +203,7 @@ export function TeamsService() {
 
       {/* Disciplines */}
       <section className={`${classes.section} ${classes.sectionAlt}`}>
-        <Container size="lg">
+        <Container size="xl">
           <SectionHeading
             index="01"
             label="Disciplines"
@@ -260,7 +260,7 @@ export function TeamsService() {
 
       {/* How we work */}
       <section className={`${classes.section} ${classes.sectionAlt}`}>
-        <Container size="lg">
+        <Container size="xl">
           <SectionHeading
             index="02"
             label="How we work"
@@ -301,7 +301,7 @@ export function TeamsService() {
 
       {/* CTA */}
       <section className={classes.ctaBand}>
-        <Container size="lg">
+        <Container size="xl">
           <div className={classes.ctaInner}>
             <div className={classes.ctaGlow} aria-hidden="true" />
             <h2 className={classes.ctaTitle}>Want to build something with our team?</h2>

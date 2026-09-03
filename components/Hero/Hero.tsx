@@ -66,7 +66,7 @@ export function Hero() {
       <div className={classes.orb2} aria-hidden="true" style={{ ['--depth' as string]: -2.2 }} />
       <div className={classes.orb3} aria-hidden="true" style={{ ['--depth' as string]: 3.4 }} />
 
-      <Container size="lg" className={classes.container}>
+      <Container size="xl" className={classes.container}>
         <div className={classes.overline}>
           <span className={classes.index}>01</span>
           <span className={classes.overlineLine} />

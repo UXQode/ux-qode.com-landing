@@ -92,7 +92,7 @@ export function CustomAI() {
     <div className={classes.page}>
       {/* Hero */}
       <section className={classes.hero}>
-        <Container size="lg">
+        <Container size="xl">
           <Reveal direction="fade">
             <span className={classes.eyebrow}>
               Custom AI Solutions for Fintechs &amp; Enterprises
@@ -141,7 +141,7 @@ export function CustomAI() {
 
       {/* How we work */}
       <section className={classes.section} id="how-we-work">
-        <Container size="lg">
+        <Container size="xl">
           <SectionHeading
             index="01"
             label="How we work with you"
@@ -163,7 +163,7 @@ export function CustomAI() {
 
       {/* Why custom */}
       <section className={`${classes.section} ${classes.sectionAlt}`}>
-        <Container size="lg">
+        <Container size="xl">
           <SectionHeading
             index="02"
             label="Why custom beats off-the-shelf"
@@ -198,7 +198,7 @@ export function CustomAI() {
 
       {/* Industries */}
       <section className={classes.section}>
-        <Container size="lg">
+        <Container size="xl">
           <SectionHeading
             index="03"
             label="Where this applies"
@@ -221,7 +221,7 @@ export function CustomAI() {
 
       {/* CTA */}
       <section className={classes.ctaBand}>
-        <Container size="lg">
+        <Container size="xl">
           <div className={classes.ctaInner}>
             <div className={classes.ctaGlow} aria-hidden="true" />
             <h2 className={classes.ctaTitle}>Tell us about your workflow</h2>
