@@ -597,6 +597,19 @@
   margin-top: 32px;
 }
 
+/* .ctaInner always renders on a fixed dark background regardless of site theme,
+   so .btnGhost's light-dark() colors (tuned for a light-mode page background)
+   can't be trusted here — pin it to the light-on-dark palette explicitly. */
+.ctaInner .btnGhost {
+  border-color: rgba(255, 255, 255, 0.3) !important;
+  color: #fff !important;
+}
+
+.ctaInner .btnGhost:hover {
+  border-color: #3ac1ce !important;
+  color: #3ac1ce !important;
+}
+
 /* ---------------- Fintech credibility band ---------------- */
 .fintech {
   position: relative;

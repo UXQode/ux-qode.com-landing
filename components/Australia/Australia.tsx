@@ -2,6 +2,7 @@ import {
   IconArrowRight,
   IconArrowsExchange,
   IconBuildingBank,
+  IconBuildingSkyscraper,
   IconCode,
   IconFileInvoice,
   IconReportMoney,
@@ -15,8 +16,9 @@ import { Button, Container, Text, ThemeIcon } from '@mantine/core';
 import { FAQ } from '@/components/FAQ/FAQ';
 import { Reveal } from '@/components/Reveal/Reveal';
 import { SectionHeading } from '@/components/SectionHeading/SectionHeading';
-import { FintechBand } from '@/components/service/FintechBand';
 import classes from '@/components/service/service.module.css';
+import styles from './Australia.module.css';
+import { usePinnedReveal } from './usePinnedReveal';
 
 const backOfficeHighlights = [
   { value: '5x', label: 'Growth absorbed, zero added headcount' },
@@ -90,6 +92,17 @@ const otherCapabilities = [
   },
 ];
 
+const australianClients = ['Verdikt', 'Bova Compounding', 'Lonely Kids Club', 'Tradiee'];
+
+const credibilityTags = [
+  'AI back-office automation',
+  'Fund-tech & accounting',
+  'Business process automation',
+  'Legacy system modernisation',
+  'Fintech-grade engineering rigour',
+  'Remote-first delivery',
+];
+
 const steps = [
   {
     title: 'Discovery call',
@@ -147,6 +160,8 @@ const heroStats = [
 ];
 
 export function Australia() {
+  const { ref: pinRef, active } = usePinnedReveal(otherCapabilities.length);
+
   return (
     <div className={classes.page}>
       {/* Hero */}
@@ -221,7 +236,7 @@ export function Australia() {
           />
 
           <Reveal direction="up">
-            <div className={classes.heroStats} style={{ marginTop: 0 }}>
+            <div className={classes.heroStats} style={{ marginTop: 'clamp(32px, 4vw, 48px)' }}>
               {backOfficeHighlights.map((s) => (
                 <div key={s.label} className={classes.heroStat}>
                   <span className={classes.heroStatValue}>{s.value}</span>
@@ -272,77 +287,120 @@ export function Australia() {
         </Container>
       </section>
 
-      {/* Beyond the back office */}
+      {/* Beyond the back office — a pinned-scroll reveal, not another card grid.
+          The wrapper is taller than the viewport, so the section holds in place
+          while these items light up one by one as the page scrolls past it. */}
       <section className={`${classes.section} ${classes.sectionAlt}`}>
-        <Container size="xl">
-          <SectionHeading
-            index="02"
-            label="Beyond the back office"
-            title={
-              <>
-                Automate, modernise, build —{' '}
-                <span className={classes.heroAccent}>without the local hiring cost</span>
-              </>
-            }
-            description="One accountable engineering partner covering the work that would otherwise mean building a team from scratch."
-          />
-          <div className={classes.grid}>
-            {otherCapabilities.map((c, i) => (
-              <div key={c.title} className={classes.card}>
-                <div className={classes.accentBar} aria-hidden="true" />
-                <div className={classes.cardTop}>
-                  <ThemeIcon
-                    size={50}
-                    radius={0}
-                    variant="gradient"
-                    gradient={{ from: 'cyan', to: 'blue' }}
-                    className={classes.cardIcon}
-                  >
-                    <c.icon size={24} stroke={1.7} />
-                  </ThemeIcon>
-                  <span className={classes.cardIndex}>{String(i + 1).padStart(2, '0')}</span>
+        <div ref={pinRef} className={styles.pinWrap}>
+          <div className={styles.pinInner}>
+            <Container size="xl">
+              <div className={styles.split}>
+                <Reveal direction="fade">
+                  <div>
+                    <SectionHeading
+                      index="02"
+                      label="Beyond the back office"
+                      align="left"
+                      title={
+                        <>
+                          Automate, modernise, build —{' '}
+                          <span className={classes.heroAccent}>without the local hiring cost</span>
+                        </>
+                      }
+                      description="One accountable engineering partner covering the work that would otherwise mean building a team from scratch."
+                    />
+                    <Button
+                      component="a"
+                      href="/#contact-us"
+                      radius={0}
+                      className={`${classes.btnGhost} ${styles.splitCta}`}
+                      rightSection={<IconArrowRight size={16} />}
+                    >
+                      Talk to our team
+                    </Button>
+                  </div>
+                </Reveal>
+
+                <div className={styles.list}>
+                  {otherCapabilities.map((c, i) => (
+                    <div
+                      key={c.title}
+                      className={`${styles.listItem} ${i < active ? styles.listItemActive : ''}`}
+                    >
+                      <span className={styles.listIcon} aria-hidden="true">
+                        <c.icon size={20} stroke={1.7} />
+                      </span>
+                      <div className={styles.listBody}>
+                        <Text component="h3" className={styles.listTitle}>
+                          {String(i + 1).padStart(2, '0')} · {c.title}
+                        </Text>
+                        <Text className={styles.listDesc}>{c.description}</Text>
+                      </div>
+                    </div>
+                  ))}
                 </div>
-                <Text component="h3" className={classes.cardTitle}>
-                  {c.title}
-                </Text>
-                <Text className={classes.cardDesc}>{c.description}</Text>
               </div>
-            ))}
+            </Container>
+          </div>
+        </div>
+      </section>
+
+      {/* Australia credibility band — a real two-column layout so the actual
+          client names get their own visual weight instead of a narrow column
+          of text floating in an otherwise-empty wide card. */}
+      <section className={classes.section}>
+        <Container size="xl">
+          <div className={classes.fintech}>
+            <div className={styles.credInner}>
+              <div className={styles.credText}>
+                <div className={classes.fintechEyebrow}>
+                  <span className={classes.chipDot} aria-hidden="true" />
+                  Australia · already in our founding team&apos;s DNA
+                </div>
+                <h2 className={classes.fintechTitle}>
+                  We&apos;ve built for{' '}
+                  <span className={classes.heroAccent}>Australian companies</span> before
+                </h2>
+                <p className={classes.fintechBody}>
+                  UXQode&apos;s founding team&apos;s background spans enterprise software delivery
+                  for companies across Australia — the same discipline we carry into building
+                  financial software that runs behind licensed institutions.
+                </p>
+
+                <div className={styles.credTagRow}>
+                  <span className={styles.credLabel}>What we bring</span>
+                  <div className={classes.fintechChips}>
+                    {credibilityTags.map((tag) => (
+                      <span key={tag} className={classes.chip}>
+                        <span className={classes.chipDot} aria-hidden="true" />
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                <div className={classes.fintechActions}>
+                  <Button component="a" href="/work" radius={0} className={classes.btnGhost}>
+                    See our work
+                  </Button>
+                </div>
+              </div>
+
+              <div className={styles.clientWallWrap}>
+                <span className={styles.credLabel}>Delivered for</span>
+                <div className={styles.clientWall}>
+                  {australianClients.map((name) => (
+                    <div key={name} className={styles.clientCard}>
+                      <IconBuildingSkyscraper size={20} stroke={1.7} className={styles.clientIcon} />
+                      <span className={styles.clientName}>{name}</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
           </div>
         </Container>
       </section>
-
-      {/* Australia credibility band */}
-      <FintechBand
-        withSection
-        variant="compact"
-        eyebrow="Australia · already in our founding team's DNA"
-        title={
-          <>
-            We&apos;ve built for <span className={classes.heroAccent}>Australian companies</span>{' '}
-            before
-          </>
-        }
-        body={
-          <>
-            UXQode&apos;s founding team&apos;s background spans enterprise software delivery for
-            companies in Australia, including <strong>Verdikt</strong>,{' '}
-            <strong>Bova Compounding</strong>, <strong>Lonely Kids Club</strong> and{' '}
-            <strong>Tradiee</strong>. That experience — plus the discipline of building financial
-            software that runs behind licensed institutions — is what carries into every
-            Australian engagement.
-          </>
-        }
-        chips={[
-          'AI back-office automation',
-          'Fund-tech & accounting',
-          'Business process automation',
-          'Legacy system modernisation',
-          'Fintech-grade engineering rigour',
-          'Remote-first delivery',
-        ]}
-        ctas={[{ label: 'See our work', href: '/work' }]}
-      />
 
       {/* Process */}
       <section className={classes.section}>
@@ -357,14 +415,26 @@ export function Australia() {
             }
             description="A lightweight start, run entirely remotely — most engagements are scoped within a week of the first conversation."
           />
-          <div className={classes.steps}>
+          <div className={styles.timeline}>
             {steps.map((s, i) => (
-              <div key={s.title} className={classes.step}>
-                <div className={classes.stepNum}>{String(i + 1).padStart(2, '0')}</div>
-                <Text component="h3" className={classes.stepTitle}>
-                  {s.title}
-                </Text>
-                <Text className={classes.stepDesc}>{s.desc}</Text>
+              <div key={s.title} className={styles.timelineItem}>
+                <div className={styles.timelineMarker}>
+                  <span
+                    className={`${styles.timelineLine} ${styles.timelineLineLeft}`}
+                    aria-hidden="true"
+                  />
+                  <span className={styles.timelineDot}>{String(i + 1).padStart(2, '0')}</span>
+                  <span
+                    className={`${styles.timelineLine} ${styles.timelineLineRight}`}
+                    aria-hidden="true"
+                  />
+                </div>
+                <div className={styles.timelineContent}>
+                  <Text component="h3" className={styles.timelineTitle}>
+                    {s.title}
+                  </Text>
+                  <Text className={styles.timelineDesc}>{s.desc}</Text>
+                </div>
               </div>
             ))}
           </div>

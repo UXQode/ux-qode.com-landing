@@ -132,7 +132,7 @@ export function Footer() {
 
         <div className={classes.bottom}>
           <Text className={classes.copyright}>
-            © {year} UXQode Pte. Ltd. · Registered in Singapore · All rights reserved.
+            © {year} UXQode Pte. Ltd. · HQ in Singapore · All rights reserved.
           </Text>
           <Text className={classes.sister}>
             Sister company of{' '}
