@@ -11,6 +11,7 @@ const navLinks = [
   { label: 'Our Work', href: '/work' },
   { label: 'About', href: '/about' },
   { label: 'Fractional CTO', href: '/fractional-cto' },
+  { label: 'Australia', href: '/australia' },
   { label: 'Team', href: '/teams' },
   { label: 'Contact', href: '/#contact-us' },
 ];

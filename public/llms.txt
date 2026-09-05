@@ -33,6 +33,7 @@
 - [Our Work](https://ux-qode.com/work): The Matrix Mutual case study and UXQode's fund administration technical highlights.
 - [About](https://ux-qode.com/about): Company history, founding team background, and why UXQode.
 - [Fractional CTO](https://ux-qode.com/fractional-cto): Senior technical leadership on demand — subscription and packaged pricing.
+- [Australia](https://ux-qode.com/australia): AI back-office automation as the primary offering for Australian companies — invoice/AP automation, bank & custodian reconciliation, and fund-tech/accounting automation — plus related business process automation, legacy modernisation, and custom software. Backed by the founding team's Australian enterprise delivery background (Verdikt, Bova Compounding, Lonely Kids Club, Tradiee).
 - [Our Team](https://ux-qode.com/teams): The people behind UXQode.
 - [aama.io](https://aama.io): UXQode's flagship fund administration platform.
 

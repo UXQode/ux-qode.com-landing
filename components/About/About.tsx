@@ -114,10 +114,10 @@ export function About() {
           <Reveal direction="up">
             <Text className={classes.priceSub} maw={720} mx="auto" ta="center" fz={16}>
               Our founding team&apos;s background spans enterprise software delivery for companies
-              in Australia, including <strong>NEXTGEN Group</strong>,{' '}
-              <strong>Luxury Escapes</strong>, and <strong>Tradiee</strong> — experience we&apos;ve
-              carried into building institutional-grade financial systems. Along the way, we&apos;ve
-              trained and developed more than 50 software engineers in-house.
+              in Australia, including <strong>Verdikt</strong>, <strong>Bova Compounding</strong>,{' '}
+              <strong>Lonely Kids Club</strong>, and <strong>Tradiee</strong> — experience
+              we&apos;ve carried into building institutional-grade financial systems. Along the
+              way, we&apos;ve trained and developed more than 50 software engineers in-house.
             </Text>
             <Text className={classes.priceSub} mt={16} maw={720} mx="auto" ta="center" fz={16}>
               Our own platforms run live, regulated funds today. That changes how we build: every

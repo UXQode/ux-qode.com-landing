@@ -24,6 +24,7 @@ const footerLinks = [
     links: [
       { label: 'All Solutions', href: '/solutions' },
       { label: 'Fractional CTO', href: '/fractional-cto' },
+      { label: 'For Australian Businesses', href: '/australia' },
       { label: 'Dedicated Teams', href: '/teams' },
       { label: 'IT Consulting', href: '/#contact-us' },
     ],

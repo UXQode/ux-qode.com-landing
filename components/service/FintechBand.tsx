@@ -16,6 +16,10 @@ interface FintechBandProps {
   ctas?: Cta[];
   /** Wrap the band in its own padded <section> + Container (for drop-in use on a page). */
   withSection?: boolean;
+  /** Eyebrow text above the title. Defaults to the fintech-specific line. */
+  eyebrow?: ReactNode;
+  /** Chip list on the right. Defaults to fintech domain chips. */
+  chips?: string[];
 }
 
 const defaultChips = [
@@ -47,6 +51,8 @@ export function FintechBand({
   body = defaultBody,
   ctas,
   withSection = false,
+  eyebrow = 'Fintech & fund-tech · in our DNA',
+  chips = defaultChips,
 }: FintechBandProps) {
   const band = (
     <div className={`${classes.fintech} ${variant === 'compact' ? classes.fintechCompact : ''}`}>
@@ -54,7 +60,7 @@ export function FintechBand({
         <div>
           <div className={classes.fintechEyebrow}>
             <span className={classes.chipDot} aria-hidden="true" />
-            Fintech &amp; fund-tech · in our DNA
+            {eyebrow}
           </div>
           <h2 className={classes.fintechTitle}>{title}</h2>
           <p className={classes.fintechBody}>{body}</p>
@@ -78,7 +84,7 @@ export function FintechBand({
         </div>
 
         <div className={classes.fintechChips}>
-          {defaultChips.map((chip) => (
+          {chips.map((chip) => (
             <span key={chip} className={classes.chip}>
               <span className={classes.chipDot} aria-hidden="true" />
               {chip}
