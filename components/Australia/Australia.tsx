@@ -136,6 +136,10 @@ const faqs = [
     a: 'Yes. UXQode is a remote-first team based in Singapore, with meaningful business-hours overlap with Australia. Our founding team also has direct, first-hand experience delivering enterprise software for Australian companies, including Verdikt, Bova Compounding, Lonely Kids Club and Tradiee.',
   },
   {
+    q: 'Can I be invoiced locally, in AUD?',
+    a: 'Yes. UXQode bills Australian clients through a local Australian entity, so invoicing runs in AUD — no FX conversion or overseas payment friction on your end.',
+  },
+  {
     q: 'How big is the UXQode team?',
     a: 'UXQode is a team of 20+ engineers, designers and product thinkers, with 200+ businesses served since founding in 2017 — and more than 50 engineers trained in-house over that time.',
   },
